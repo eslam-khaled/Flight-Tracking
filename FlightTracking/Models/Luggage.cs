@@ -10,7 +10,7 @@ namespace FlightTracking.Models
     public class Luggage
     {
         [Key]
-        [ForeignKey("CurrentStage")]
+        [ForeignKey("currentStage")]
         public int CurrentStageId { get; set; }
         public int ID { get; set; }
         public int StageName { get; set; }

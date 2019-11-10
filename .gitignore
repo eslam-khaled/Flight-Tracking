@@ -4,3 +4,6 @@
 
 /.vs/FlightTracking/v16/Server/sqlite3
 /FlightTracking/obj/Debug
+/FlightTracking/Migrations/201911101422379_RelationShips.cs
+/FlightTracking/Migrations/201911101422379_RelationShips.Designer.cs
+/packages/EntityFramework.6.4.0-preview2-19525-03/content/net40
