@@ -12,7 +12,6 @@ namespace FlightTracking.Models
         [Key]
         [ForeignKey("currentStage")]
         public int CurrentStageId { get; set; }
-        public int ID { get; set; }
         public int StageName { get; set; }
         public double EstimatedTime { get; set; }
         public double ExtraTime { get; set; }

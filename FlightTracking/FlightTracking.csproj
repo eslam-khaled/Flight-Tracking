@@ -190,6 +190,10 @@
     <Compile Include="Migrations\201911101806365_RelationShips3.designer.cs">
       <DependentUpon>201911101806365_RelationShips3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911101848559_RelationShip4.cs" />
+    <Compile Include="Migrations\201911101848559_RelationShip4.designer.cs">
+      <DependentUpon>201911101848559_RelationShip4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CountryFrom.cs" />
@@ -290,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911101806365_RelationShips3.resx">
       <DependentUpon>201911101806365_RelationShips3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911101848559_RelationShip4.resx">
+      <DependentUpon>201911101848559_RelationShip4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
