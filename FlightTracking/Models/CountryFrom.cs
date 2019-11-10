@@ -9,6 +9,6 @@ namespace FlightTracking.Models
     {
         public int ID { get; set; }
         public string Country { get; set; }
-
+        public List<Plane> planes { get; set; }
     }
 }

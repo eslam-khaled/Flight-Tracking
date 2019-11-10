@@ -12,5 +12,7 @@ namespace FlightTracking.Models
         public double ArrivalTime { get; set; }
         public string ArrivalHall { get; set; }
         public string ArrivalBulding { get; set; }
+        public List<Passanger> passangers { get; set; }
+        public CountryFrom countryFrom { get; set; }
     }
 }
