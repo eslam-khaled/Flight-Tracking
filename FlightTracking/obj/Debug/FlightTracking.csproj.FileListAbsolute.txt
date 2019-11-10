@@ -103,3 +103,7 @@ C:\Users\Eslam\source\repos\FlightTracking\FlightTracking\obj\Debug\FlightTracki
 C:\Users\Eslam\source\repos\FlightTracking\FlightTracking\obj\Debug\FlightTracking.csproj.CopyComplete
 C:\Users\Eslam\source\repos\FlightTracking\FlightTracking\obj\Debug\FlightTracking.dll
 C:\Users\Eslam\source\repos\FlightTracking\FlightTracking\obj\Debug\FlightTracking.pdb
+C:\Users\Eslam\source\repos\FlightTracking\FlightTracking\obj\Debug\FlightTracking.Migrations._1stMig.resources
+C:\Users\Eslam\source\repos\FlightTracking\FlightTracking\obj\Debug\FlightTracking.csproj.GenerateResource.cache
+C:\Users\Eslam\source\repos\FlightTracking\FlightTracking\obj\Debug\FlightTracking.Migrations.Remigration.resources
+C:\Users\Eslam\source\repos\FlightTracking\FlightTracking\obj\Debug\FlightTracking.Migrations.ReMigration2.resources
