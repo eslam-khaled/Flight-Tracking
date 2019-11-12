@@ -12,12 +12,8 @@ namespace FlightTracking.Models
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey("currentStage")]
-        [DefaultValue("1")]
-        public int? CurrentStageId { get; set; }
         public string Name { get; set; }
-        public string Nationality { get; set; }
-        public virtual CurrentStage currentStage { get; set; }
+        public string Nationality { get; set; } 
         public Plane plane { get; set; }
     }
 }
