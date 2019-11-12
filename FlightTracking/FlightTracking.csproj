@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201911121502458_StagesNulls.Designer.cs">
       <DependentUpon>201911121502458_StagesNulls.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911121958520_ModelsChange.cs" />
+    <Compile Include="Migrations\201911121958520_ModelsChange.Designer.cs">
+      <DependentUpon>201911121958520_ModelsChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CountryFrom.cs" />
@@ -318,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911121502458_StagesNulls.resx">
       <DependentUpon>201911121502458_StagesNulls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911121958520_ModelsChange.resx">
+      <DependentUpon>201911121958520_ModelsChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

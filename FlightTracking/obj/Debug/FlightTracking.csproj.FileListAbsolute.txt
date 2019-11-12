@@ -338,3 +338,4 @@ C:\Users\Eslam\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTrack
 C:\Users\Eslam\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.Migrations.PassangerIdModel.resources
 C:\Users\Eslam\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.Migrations.PassangerCurrentStage.resources
 C:\Users\Eslam\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.Migrations.StagesNulls.resources
+C:\Users\Eslam\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.Migrations.ModelsChange.resources
