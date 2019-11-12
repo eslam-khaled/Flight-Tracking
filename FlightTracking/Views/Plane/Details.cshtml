@@ -1,0 +1,50 @@
+﻿@model FlightTracking.Models.Plane
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Plane</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AirLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AirLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalHall)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalHall)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalBulding)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalBulding)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
