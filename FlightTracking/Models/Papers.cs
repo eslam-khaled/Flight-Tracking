@@ -14,7 +14,7 @@ namespace FlightTracking.Models
         public int CurrentStageId { get; set; }
         public int StageName { get; set; }
         public double EstimatedTime { get; set; }
-        public double ExtraTime { get; set; }
+        public double? ExtraTime { get; set; }
         public virtual CurrentStage currentStage { get; set; }
 
     }

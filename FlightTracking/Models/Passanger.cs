@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace FlightTracking.Models
         [Key]
         public int Id { get; set; }
         [ForeignKey("currentStage")]
-        public int CurrentStageId { get; set; }
+        [DefaultValue("1")]
+        public int? CurrentStageId { get; set; }
         public string Name { get; set; }
         public string Nationality { get; set; }
         public virtual CurrentStage currentStage { get; set; }

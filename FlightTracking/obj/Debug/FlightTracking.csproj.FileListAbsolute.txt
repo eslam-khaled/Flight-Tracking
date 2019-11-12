@@ -334,3 +334,7 @@ C:\Users\Eslam\source\repos\Flight-Tracking\FlightTracking\bin\Microsoft.Owin.Se
 C:\Users\Eslam\source\repos\Flight-Tracking\FlightTracking\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Eslam\source\repos\Flight-Tracking\FlightTracking\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Eslam\source\repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.csproj.CopyComplete
+C:\Users\Eslam\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.csprojAssemblyReference.cache
+C:\Users\Eslam\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.Migrations.PassangerIdModel.resources
+C:\Users\Eslam\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.Migrations.PassangerCurrentStage.resources
+C:\Users\Eslam\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.Migrations.StagesNulls.resources

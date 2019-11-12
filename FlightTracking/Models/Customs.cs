@@ -15,7 +15,7 @@ namespace FlightTracking.Models
         public int ID { get; set; }
         public int StageName { get; set; }
         public double EstimatedTime { get; set; }
-        public double ExtraTime { get; set; }
+        public double? ExtraTime { get; set; }
         //Reference for the other tables to allow one-to-one relationship
         public virtual CurrentStage currentStage { get; set; }
 

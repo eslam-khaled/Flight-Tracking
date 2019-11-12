@@ -199,6 +199,14 @@
     <Compile Include="Migrations\201911121346442_PassangerIdModel.Designer.cs">
       <DependentUpon>201911121346442_PassangerIdModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911121427495_PassangerCurrentStage.cs" />
+    <Compile Include="Migrations\201911121427495_PassangerCurrentStage.Designer.cs">
+      <DependentUpon>201911121427495_PassangerCurrentStage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911121502458_StagesNulls.cs" />
+    <Compile Include="Migrations\201911121502458_StagesNulls.Designer.cs">
+      <DependentUpon>201911121502458_StagesNulls.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CountryFrom.cs" />
@@ -227,6 +235,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Plane\create.cshtml" />
+    <Content Include="Views\Passanger\Index.cshtml" />
+    <Content Include="Views\Passanger\AddPassanger.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -274,7 +284,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Passanger\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -307,6 +316,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911121346442_PassangerIdModel.resx">
       <DependentUpon>201911121346442_PassangerIdModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911121427495_PassangerCurrentStage.resx">
+      <DependentUpon>201911121427495_PassangerCurrentStage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911121502458_StagesNulls.resx">
+      <DependentUpon>201911121502458_StagesNulls.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
