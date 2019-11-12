@@ -10,6 +10,7 @@ namespace FlightTracking.Models
     public class Passanger
     {
         [Key]
+        public int Id { get; set; }
         [ForeignKey("currentStage")]
         public int CurrentStageId { get; set; }
         public string Name { get; set; }
