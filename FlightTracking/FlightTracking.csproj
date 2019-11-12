@@ -187,11 +187,6 @@
     <Compile Include="Migrations\201911101331140_ReMigration2.Designer.cs">
       <DependentUpon>201911101331140_ReMigration2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911101422379_RelationShips.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>201911101422379_RelationShips.resx</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201911101806365_RelationShips3.cs" />
     <Compile Include="Migrations\201911101806365_RelationShips3.designer.cs">
       <DependentUpon>201911101806365_RelationShips3.cs</DependentUpon>
@@ -227,6 +222,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\Plane\create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -275,7 +271,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Passanger\" />
-    <Folder Include="Views\Plane\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
