@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FlightTracking.Models;
@@ -13,14 +11,13 @@ namespace FlightTracking.Controllers
     {
         ApplicationDbContext context;
 
-        public PlaneController()
-        {
+        public PlaneController(){
 
-            context = new ApplicationDbContext();
+            context = new ApplicationDbContext(); 
 
         }
 
-
+        
         // GET: Plane
         #region Details
         public ActionResult Index()
@@ -103,9 +100,6 @@ namespace FlightTracking.Controllers
             return View("Error");
           
         }
-        #endregion
-        // delete Plane
-        #region delete
         public ActionResult delete(int id)
         {
             var record = context.planes.Find(id);
