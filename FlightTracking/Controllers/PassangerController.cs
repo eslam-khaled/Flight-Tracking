@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FlightTracking.Models;
+using FlightTracking.ViewModels;
 
 namespace FlightTracking.Controllers
 {
@@ -27,10 +28,30 @@ namespace FlightTracking.Controllers
         [HttpGet]
         public ActionResult AddPassanger()
         {
-            return View();
+            var passangerVM = new PassangerStageVM
+            {
+                passanger = new Passanger(),
+                stages = context.Stages
+            };
+            return View(passangerVM);
         }
+        [HttpPost]
+        public ActionResult AddPassanger(Passanger passanger)
+        {
+            var stages = context.Stages.ToList();
+            context.passangers.Add(passanger);
+            context.SaveChanges();
+            var passangerVM = new PassangerStageVM
+            {
+                stages = stages
+            };
+            return RedirectToAction("Index");
+        }
+        #endregion
 
         //DeletePassanger
+        #region Delete
+        [HttpGet]
         public ActionResult DeletePassanger(int? id)
         {
             Passanger passanger = context.passangers.Find(id);
@@ -46,10 +67,13 @@ namespace FlightTracking.Controllers
             context.passangers.Remove(MyDel);
             context.SaveChanges();
 
-            return View("Index");
+            return RedirectToAction("Index");
         }
+        #endregion
 
         //EditPassanger
+        #region Edit
+        [HttpGet]
         public ActionResult EditPassanger(int? id)
         {
             Passanger passanger = context.passangers.Find(id);
@@ -63,17 +87,10 @@ namespace FlightTracking.Controllers
         {
             var MyEdit = context.passangers.Where(c => c.Id == id).FirstOrDefault();
             MyEdit.Name = passanger.Name;
-            MyEdit.Nationality =passanger.Nationality;
+            MyEdit.Nationality = passanger.Nationality;
             context.SaveChanges();
 
-            return View("EditPassanger");
-        }
-        [HttpPost]
-        public ActionResult AddPassanger(Passanger passanger)
-        {
-            context.passangers.Add(passanger);
-            context.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
         }
         #endregion
     }

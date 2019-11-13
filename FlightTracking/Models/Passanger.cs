@@ -15,5 +15,6 @@ namespace FlightTracking.Models
         public string Name { get; set; }
         public string Nationality { get; set; } 
         public Plane plane { get; set; }
+        public Stages Stages { get; set; }
     }
 }
