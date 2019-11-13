@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201911121958520_ModelsChange.Designer.cs">
       <DependentUpon>201911121958520_ModelsChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911131209576_Re-modeling.cs" />
+    <Compile Include="Migrations\201911131209576_Re-modeling.Designer.cs">
+      <DependentUpon>201911131209576_Re-modeling.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CountryFrom.cs" />
@@ -343,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911121958520_ModelsChange.resx">
       <DependentUpon>201911121958520_ModelsChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911131209576_Re-modeling.resx">
+      <DependentUpon>201911131209576_Re-modeling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.ModelsChange.resources" />
     <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.PassangerCurrentStage.resources" />
