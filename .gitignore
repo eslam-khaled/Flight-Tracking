@@ -9,3 +9,5 @@
 /packages/EntityFramework.6.4.0-preview2-19525-03/content/net40
 /.vs/Flight-Tracking/v16
 /FlightTracking/obj/Release
+/FlightTracking/Migrations
+/packages
