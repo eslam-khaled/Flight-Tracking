@@ -29,12 +29,8 @@ namespace FlightTracking.Models
         {
             return new ApplicationDbContext();
         }
-        public DbSet<Luggage> luggage { get; set; }
-        public DbSet<Customs> customs { get; set; }
+
         public DbSet<CountryFrom> countryFrom { get; set; }
-        public DbSet<CurrentStage> currentStage { get; set; }
-        public DbSet<Inspecting> inspecting { get; set; }
-        public DbSet<Papers> papers { get; set; }
         public DbSet<Passanger> passangers { get; set; }
         public DbSet<Plane> planes { get; set; }
         public DbSet<Stages> Stages { get; set; }

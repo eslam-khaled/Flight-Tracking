@@ -214,13 +214,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CountryFrom.cs" />
-    <Compile Include="Models\CurrentStage.cs" />
-    <Compile Include="Models\Customs.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Inspecting.cs" />
-    <Compile Include="Models\Luggage.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Papers.cs" />
     <Compile Include="Models\Passanger.cs" />
     <Compile Include="Models\Plane.cs" />
     <Compile Include="Models\Stages.cs" />
