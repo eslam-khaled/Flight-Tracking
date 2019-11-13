@@ -1,0 +1,37 @@
+﻿@model FlightTracking.Models.Stages
+
+<div>
+    <h4>Stages</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstimatedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstimatedTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtraTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtraTime)
+        </dd>
+
+    </dl>
+</div>
+@Html.Action("Index", "Passanger")
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StageID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

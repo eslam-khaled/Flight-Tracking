@@ -172,6 +172,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PassangerController.cs" />
     <Compile Include="Controllers\PlaneController.cs" />
+    <Compile Include="Controllers\StageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,6 +259,9 @@
     <Content Include="Views\Plane\Details.cshtml" />
     <Content Include="Views\Plane\Edit.cshtml" />
     <Content Include="Views\Plane\Index.cshtml" />
+    <Content Include="Views\Stage\_StageDetails.cshtml" />
+    <Content Include="Views\Passanger\_Index.cshtml" />
+    <Content Include="Views\Stage\StageDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

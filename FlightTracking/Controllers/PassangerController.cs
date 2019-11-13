@@ -20,7 +20,7 @@ namespace FlightTracking.Controllers
         public ActionResult Index()
         {
             var AllPassangers = context.passangers.ToList();
-            return View(AllPassangers);
+            return PartialView("_Index",AllPassangers);
         }
         #endregion
 
