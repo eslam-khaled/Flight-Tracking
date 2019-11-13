@@ -46,6 +46,7 @@ namespace FlightTracking.Controllers
                 stages = stages
             };
             return RedirectToAction("Index");
+            return PartialView("_partialpassangeradd");
         }
         #endregion
 

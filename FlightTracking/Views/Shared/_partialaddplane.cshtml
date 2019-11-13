@@ -1,0 +1,23 @@
+﻿@model FlightTracking.Models.Plane
+
+
+   <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.AirLine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ArrivalTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ArrivalHall)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ArrivalBulding)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=Model.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=Model.ID })
+            </td>
+        </tr>
+
