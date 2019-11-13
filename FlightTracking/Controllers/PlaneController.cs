@@ -26,7 +26,7 @@ namespace FlightTracking.Controllers
         public ActionResult Index()
         {
             var plane = context.planes.ToList();
-            return View(plane);
+            return View("Index",plane);
         }
 
         public ActionResult Details(int? id)
@@ -80,21 +80,28 @@ namespace FlightTracking.Controllers
         #endregion
         // create Plane
         #region Create
+        [HttpGet]
         public ActionResult create()
         {
 
-            return View();
+            return PartialView("_addview");
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult create(Plane plane)
         {
             if (plane == null)
             {
-
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            context.planes.Add(plane);
-            context.SaveChanges();
-            return View("create");
+            if (ModelState.IsValid) {
+
+                context.planes.Add(plane);
+                context.SaveChanges();
+                return PartialView("_partialaddplane",plane);
+            }
+            return View("Error");
+          
         }
         #endregion
         // delete Plane
@@ -104,7 +111,7 @@ namespace FlightTracking.Controllers
             var record = context.planes.Find(id);
             context.planes.Remove(record);
             context.SaveChanges();
-            return View();
+            return View("Index");
         }
         #endregion
 

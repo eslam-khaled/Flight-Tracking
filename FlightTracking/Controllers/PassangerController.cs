@@ -27,7 +27,7 @@ namespace FlightTracking.Controllers
         [HttpGet]
         public ActionResult AddPassanger()
         {
-            return View();
+            return PartialView("_partialpassangeradd");
         }
 
         //DeletePassanger
