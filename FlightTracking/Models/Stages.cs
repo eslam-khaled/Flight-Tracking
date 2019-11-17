@@ -10,8 +10,11 @@ namespace FlightTracking.Models
     {
         [Key]
         public int StageID { get; set; }
+        [Display(Name ="Stage Name")]
         public string StageName { get; set; }
+        [Display(Name = "Estimated Time")]
         public int EstimatedTime { get; set; }
+        [Display(Name = "Extra Time")]
         public int? ExtraTime { get; set; }
         public List<Passanger> passangers { get; set; }
     }

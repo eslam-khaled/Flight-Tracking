@@ -172,6 +172,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PassangerController.cs" />
     <Compile Include="Controllers\PlaneController.cs" />
+    <Compile Include="Controllers\StageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +212,10 @@
     <Compile Include="Migrations\201911121958520_ModelsChange.Designer.cs">
       <DependentUpon>201911121958520_ModelsChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911131209576_Re-modeling.cs" />
+    <Compile Include="Migrations\201911131209576_Re-modeling.Designer.cs">
+      <DependentUpon>201911131209576_Re-modeling.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CountryFrom.cs" />
@@ -221,8 +226,11 @@
     <Compile Include="Models\Stages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PassangerStageVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\FlightTracking.dll" />
+    <Content Include="bin\FlightTracking.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -231,20 +239,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="obj\Debug\FlightTracking.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\FlightTracking.dll" />
+    <Content Include="obj\Debug\FlightTracking.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Plane\create.cshtml" />
-    <Content Include="Views\Passanger\Index.cshtml" />
     <Content Include="Views\Passanger\AddPassanger.cshtml" />
+    <Content Include="Views\Passanger\Index.cshtml" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\FlightTracking.csproj.CopyComplete" />
+    <Content Include="obj\Debug\FlightTracking.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\FlightTracking.csproj.GenerateResource.cache" />
+    <Content Include="obj\Release\FlightTracking.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Release\FlightTracking.csprojAssemblyReference.cache" />
+    <Content Include="Views\Passanger\DeletePassanger.cshtml" />
+    <Content Include="Views\Passanger\EditPassanger.cshtml" />
     <Content Include="Views\Plane\Details.cshtml" />
     <Content Include="Views\Plane\Edit.cshtml" />
-    <Content Include="Views\Shared\_addview.cshtml" />
-    <Content Include="Views\Shared\_partialaddplane.cshtml" />
     <Content Include="Views\Plane\Index.cshtml" />
-    <Content Include="Views\Shared\_partialpassangeradd.cshtml" />
+    <Content Include="Views\Stage\_StageDetails.cshtml" />
+    <Content Include="Views\Passanger\_Index.cshtml" />
+    <Content Include="Views\Stage\StageDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -292,6 +309,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -334,6 +352,18 @@
     <EmbeddedResource Include="Migrations\201911121958520_ModelsChange.resx">
       <DependentUpon>201911121958520_ModelsChange.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911131209576_Re-modeling.resx">
+      <DependentUpon>201911131209576_Re-modeling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.ModelsChange.resources" />
+    <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.PassangerCurrentStage.resources" />
+    <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.PassangerIdModel.resources" />
+    <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.RelationShip4.resources" />
+    <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.RelationShips3.resources" />
+    <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.Remigration.resources" />
+    <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.ReMigration2.resources" />
+    <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.StagesNulls.resources" />
+    <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations._1stMig.resources" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

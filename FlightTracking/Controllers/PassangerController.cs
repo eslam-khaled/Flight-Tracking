@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using System.Windows;
 using FlightTracking.Models;
 
 
@@ -15,12 +17,18 @@ namespace FlightTracking.Controllers
         {
             context = new ApplicationDbContext();
         }
+
         #region Get All Passangers
         // GET: Passanger
         public ActionResult Index()
         {
             var AllPassangers = context.passangers.ToList();
             return PartialView("_indexpassanger", AllPassangers);
+        }
+            public ActionResult Index(int? id)
+        {
+            var AllPassangers = context.passangers.Where(x => x.Stages.StageID == id).ToList();
+            return View("_Index", AllPassangers);
         }
         #endregion
         #region details
@@ -40,10 +48,9 @@ namespace FlightTracking.Controllers
         [HttpPost]
         public ActionResult AddPassanger(int id,Passanger passanger)
         {
-
-          //  passanger.id_plane = id;
+            Stages stages = context.Stages.Where(x => x.StageID == 1).FirstOrDefault();
+            passanger.Stages = stages;
             context.passangers.Add(passanger);
-            
             context.SaveChanges();
            
             return PartialView("_AppendPassanger", passanger);
@@ -93,6 +100,30 @@ namespace FlightTracking.Controllers
             context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+        #endregion
+
+        #region Next Stage
+        //[HttpGet]
+        //public ActionResult MoveToNextStage()
+        //{
+        //    return RedirectToAction("");
+        //}
+       // [HttpPost]
+        public ActionResult MoveToNextStage(int? id)
+        {
+            var GoNext = context.passangers.Where(x=>x.Id==id).SingleOrDefault();
+            if (GoNext.PassangerStageId < 5)
+            {
+                GoNext.PassangerStageId += 1;
+                context.SaveChanges();
+                return RedirectToAction("StageDetails", "Stage", new { id = GoNext.PassangerStageId -1 });
+            }
+            else if (GoNext.PassangerStageId == 5)
+            {
+                return PartialView("Error");
+            }
+            return View();
         }
         #endregion
     }
