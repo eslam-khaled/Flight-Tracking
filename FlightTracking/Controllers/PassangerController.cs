@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.UI;
 using System.Windows;
 using FlightTracking.Models;
-using FlightTracking.ViewModels;
+
 
 namespace FlightTracking.Controllers
 {
@@ -20,28 +20,41 @@ namespace FlightTracking.Controllers
 
         #region Get All Passangers
         // GET: Passanger
-        public ActionResult Index(int? id)
+        public ActionResult Index()
+        {
+            var AllPassangers = context.passangers.ToList();
+            return PartialView("_indexpassanger", AllPassangers);
+        }
+            public ActionResult Index(int? id)
         {
             var AllPassangers = context.passangers.Where(x => x.Stages.StageID == id).ToList();
             return View("_Index", AllPassangers);
         }
+        #endregion
+        #region details
+        //public ActionResult Planepassaner(int id)
+        //{
+        //    var passangers = context.passangers.Where(a => a.id_plane == id).ToList();
+        //    return PartialView("_indexpassanger", passangers);
+        //}
         #endregion
 
         #region Add Passanger
         [HttpGet]
         public ActionResult AddPassanger()
         {
-            return View();
+            return PartialView("_partialpassangeradd");
         }
         [HttpPost]
-        public ActionResult AddPassanger(Passanger passanger)
+        public ActionResult AddPassanger(int id,Passanger passanger)
         {
             Stages stages = context.Stages.Where(x => x.StageID == 1).FirstOrDefault();
             passanger.Stages = stages;
             context.passangers.Add(passanger);
             context.SaveChanges();
-
-            return RedirectToAction("Index");
+           
+            return PartialView("_AppendPassanger", passanger);
+            
         }
         #endregion
 

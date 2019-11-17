@@ -107,7 +107,7 @@ namespace FlightTracking.Controllers
             var record = context.planes.Find(id);
             context.planes.Remove(record);
             context.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
         }
         #endregion
 
