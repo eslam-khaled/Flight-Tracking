@@ -8,9 +8,9 @@ namespace FlightTracking.ViewModels
 {
     public class PassangerStageVM
     {
-        public  Passanger passanger { get; set; }
-        public IEnumerable<Stages> stages { get; set; }
+        public List<Passanger> passanger { get; set; }
+        public Stages stages { get; set; }
 
-       
+
     }
 }

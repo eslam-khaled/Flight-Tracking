@@ -1,5 +1,6 @@
 ﻿@model FlightTracking.Models.Stages
 
+@*table shows stage data*@
 <div>
     <h4>Stages</h4>
     <hr />
@@ -30,8 +31,42 @@
 
     </dl>
 </div>
-@Html.Action("Index", "Passanger")
-@*<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StageID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>*@
+
+@*Extra time button which only show the hidden extra time form, then it hides itself after click*@
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" id="ExTimeBtn" value="Extra Time" class="btn btn-primary" />
+    </div>
+</div>
+
+@*Add Extra Time*@
+<div id="ExTimeTxtBox" hidden="hidden">
+    @using (Html.BeginForm("AddExtraTime", "Stage", new { id = Model.StageID }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.ExtraTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ExtraTime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ExtraTime, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Add Extra Time" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@*Render Index partial view which holds the passangers index*@
+<div>
+    @Html.Action("Index", "Passanger", new { id = Model.StageID })
+</div>
+
+@Html.Action("MoveToNextStage", "Passanger")
+@*Java script*@
+<script src="~/JavaScript/MyJavaScript.js"></script>

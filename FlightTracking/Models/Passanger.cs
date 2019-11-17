@@ -13,7 +13,13 @@ namespace FlightTracking.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Nationality { get; set; }
-        public Plane plane { get; set; }
-        public Stages Stages { get; set; }
+        [ForeignKey("plane")]
+        public int? PassangerPlaneId { get; set; }
+        public virtual Plane plane { get; set; }
+        [ForeignKey("Stages")]
+        public int? PassangerStageId { get; set; }
+        public virtual Stages Stages { get; set; }
+    
+
     }
 }

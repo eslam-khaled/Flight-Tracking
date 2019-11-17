@@ -15,12 +15,13 @@ namespace FlightTracking.Controllers
         {
             context = new ApplicationDbContext();
         }
+
         #region Get All Passangers
         // GET: Passanger
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            var AllPassangers = context.passangers.ToList();
-            return PartialView("_Index",AllPassangers);
+            var AllPassangers = context.passangers.Where(x=>x.Stages.StageID == id).ToList();
+            return View("_Index", AllPassangers);
         }
         #endregion
 
@@ -28,25 +29,17 @@ namespace FlightTracking.Controllers
         [HttpGet]
         public ActionResult AddPassanger()
         {
-            var passangerVM = new PassangerStageVM
-            {
-                passanger = new Passanger(),
-                stages = context.Stages
-            };
-            return View(passangerVM);
+            return View();
         }
         [HttpPost]
         public ActionResult AddPassanger(Passanger passanger)
         {
-            var stages = context.Stages.ToList();
+            Stages stages = context.Stages.Where(x => x.StageID == 1).FirstOrDefault();
+            passanger.Stages = stages;
             context.passangers.Add(passanger);
             context.SaveChanges();
-            var passangerVM = new PassangerStageVM
-            {
-                stages = stages
-            };
+            
             return RedirectToAction("Index");
-            return PartialView("_partialpassangeradd");
         }
         #endregion
 
@@ -92,6 +85,22 @@ namespace FlightTracking.Controllers
             context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+        #endregion
+
+        #region Next Stage
+        [HttpGet]
+        public ActionResult MoveToNextStage ()
+        {
+            return View("_NextStage");
+        }
+        [HttpPost]
+        public ActionResult MoveToNextStage(int? id)
+        {
+            var GoNext = context.passangers.Where(x => x.Stages.StageID == id).SingleOrDefault();
+            //GoNext. += 1;
+            context.SaveChanges();
+            return View("_NextStage");
         }
         #endregion
     }
