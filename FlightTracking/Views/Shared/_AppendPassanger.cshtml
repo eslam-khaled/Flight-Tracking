@@ -1,0 +1,21 @@
+﻿@model FlightTracking.Models.Passanger
+
+<table class="table">
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Nationality)
+        </td>
+        <td>
+            <div>
+                @Html.ActionLink("Edit", "EditPassanger", new { id = Model.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = Model.Id }) |
+                @Html.ActionLink("Delete", "DeletePassanger", new { id = Model.Id })
+            </div>
+        </td>
+        
+    </tr>
+</table>
+

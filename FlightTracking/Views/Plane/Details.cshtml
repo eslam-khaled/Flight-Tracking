@@ -44,6 +44,42 @@
 
     </dl>
 </div>
+
+
+            <div>
+                
+                 
+                <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addpassanger" id= @Model.ID >
+                    Add Passanger
+                </button>
+
+                 
+                <div class="modal fade" id="addpassanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-body">
+
+                                @Html.Action("AddPassanger", "Passanger",new { id= Model.ID })
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>|
+                
+
+            </div>
+
+
+<p class="text-center text-info ">
+    <b> The Plane Passanger</b>
+</p>
+<div>
+    @Html.Action("Planepassaner","Passanger",new {id=Model.ID })
+</div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")

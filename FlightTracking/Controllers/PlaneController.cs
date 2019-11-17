@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FlightTracking.Models;
@@ -105,7 +107,7 @@ namespace FlightTracking.Controllers
             var record = context.planes.Find(id);
             context.planes.Remove(record);
             context.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
         }
         #endregion
 

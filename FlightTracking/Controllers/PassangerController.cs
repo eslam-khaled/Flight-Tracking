@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FlightTracking.Models;
-using FlightTracking.ViewModels;
+
 
 namespace FlightTracking.Controllers
 {
@@ -20,33 +20,34 @@ namespace FlightTracking.Controllers
         public ActionResult Index()
         {
             var AllPassangers = context.passangers.ToList();
-            return View(AllPassangers);
+            return PartialView("_indexpassanger", AllPassangers);
         }
+        #endregion
+        #region details
+        //public ActionResult Planepassaner(int id)
+        //{
+        //    var passangers = context.passangers.Where(a => a.id_plane == id).ToList();
+        //    return PartialView("_indexpassanger", passangers);
+        //}
         #endregion
 
         #region Add Passanger
         [HttpGet]
         public ActionResult AddPassanger()
         {
-            var passangerVM = new PassangerStageVM
-            {
-                passanger = new Passanger(),
-                stages = context.Stages
-            };
-            return View(passangerVM);
+            return PartialView("_partialpassangeradd");
         }
         [HttpPost]
-        public ActionResult AddPassanger(Passanger passanger)
+        public ActionResult AddPassanger(int id,Passanger passanger)
         {
-            var stages = context.Stages.ToList();
+
+          //  passanger.id_plane = id;
             context.passangers.Add(passanger);
+            
             context.SaveChanges();
-            var passangerVM = new PassangerStageVM
-            {
-                stages = stages
-            };
-            return RedirectToAction("Index");
-            return PartialView("_partialpassangeradd");
+           
+            return PartialView("_AppendPassanger", passanger);
+            
         }
         #endregion
 

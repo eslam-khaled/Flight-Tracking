@@ -1,23 +1,24 @@
 ﻿@model FlightTracking.Models.Plane
 
+    <table class="table">
+        <tr>
+            <td>
+                @Html.ActionLink(Html.DisplayFor(modelItem => Model.AirLine).ToString(), "Details", new { id = Model.ID })
+            </td>
 
-   <tr>
+
             <td>
-                @Html.DisplayFor(modelItem => Model.AirLine)
+
+                <div>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary" }) |
+                    @*@Html.ActionLink("Add Passanger", "AddPassanger", "Passanger", new { id = Model.ID }, new { @class = "btn btn-success" })|*@
+
+                    @Html.ActionLink("Delete", "delete", "Plane", new { id = Model.ID }, new { @class = "btn btn-danger" })
+
+                </div>
+
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.ArrivalTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.ArrivalHall)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.ArrivalBulding)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=Model.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=Model.ID })
-            </td>
+
         </tr>
 
+    </table>

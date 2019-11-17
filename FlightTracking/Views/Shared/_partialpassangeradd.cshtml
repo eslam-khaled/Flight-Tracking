@@ -14,56 +14,60 @@
         Confirm = "Are You Sure?",
         HttpMethod = "post",
         InsertionMode = InsertionMode.InsertAfter,
-        UpdateTargetId = "tbody"
+        UpdateTargetId = "tbody2",
+        OnSuccess="EndUpdatePage()"
 
 
     };
 }
 
-@using (Ajax.BeginForm("AddPassanger", "Passanger",ajaxaddpassanger))
+@using (Ajax.BeginForm("AddPassanger", "Passanger",ajaxaddpassanger,new {id="test" }))
+
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Passanger</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @*@Html.LabelFor(model => model.CurrentStageId, "CurrentStageId", htmlAttributes: new { @class = "control-label col-md-2" })*@
-            @*<div class="col-md-10">
-                    @Html.DropDownList("CurrentStageId", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.CurrentStageId, "", new { @class = "text-danger" })
-                </div>*@
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nationality, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nationality, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nationality, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+<div class="form-horizontal">
+    <h4>Passanger</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+    <div class="form-group">
+        
+    </div>
+  
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nationality, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nationality, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nationality, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>*@
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</div>
+    
 }
-
-
-
-@*@section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }*@
+<script>
+    function EndUpdatePage() {
+  //$('#addpassanger').modal('hide')
+        $('#addpassanger').modal('handleUpdate')
+  
+}
+</script>
 
 
