@@ -1,7 +1,7 @@
 ﻿@model FlightTracking.Models.Stages
 
 <div>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("MoveToNextStage","Passanger"))
     {
         <div class="form-group">
             @Html.HiddenFor(m => m.StageID);

@@ -19,7 +19,7 @@ namespace FlightTracking.Controllers
 
         #region Show Stage Details
         // GET: Stage
-        public ActionResult StageDetails(int id = 1)
+        public ActionResult StageDetails(int id )
         {
             var Details = context.Stages.Where(x => x.StageID == id).FirstOrDefault();
             Details.EstimatedTime += Convert.ToInt32(Details.ExtraTime);

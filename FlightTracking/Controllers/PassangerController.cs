@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using System.Windows;
 using FlightTracking.Models;
 using FlightTracking.ViewModels;
 
@@ -20,7 +22,7 @@ namespace FlightTracking.Controllers
         // GET: Passanger
         public ActionResult Index(int? id)
         {
-            var AllPassangers = context.passangers.Where(x=>x.Stages.StageID == id).ToList();
+            var AllPassangers = context.passangers.Where(x => x.Stages.StageID == id).ToList();
             return View("_Index", AllPassangers);
         }
         #endregion
@@ -38,7 +40,7 @@ namespace FlightTracking.Controllers
             passanger.Stages = stages;
             context.passangers.Add(passanger);
             context.SaveChanges();
-            
+
             return RedirectToAction("Index");
         }
         #endregion
@@ -89,18 +91,26 @@ namespace FlightTracking.Controllers
         #endregion
 
         #region Next Stage
-        [HttpGet]
-        public ActionResult MoveToNextStage ()
-        {
-            return View("_NextStage");
-        }
-        [HttpPost]
+        //[HttpGet]
+        //public ActionResult MoveToNextStage()
+        //{
+        //    return RedirectToAction("");
+        //}
+       // [HttpPost]
         public ActionResult MoveToNextStage(int? id)
         {
-            var GoNext = context.passangers.Where(x => x.Stages.StageID == id).SingleOrDefault();
-            //GoNext. += 1;
-            context.SaveChanges();
-            return View("_NextStage");
+            var GoNext = context.passangers.Where(x=>x.Id==id).SingleOrDefault();
+            if (GoNext.PassangerStageId < 5)
+            {
+                GoNext.PassangerStageId += 1;
+                context.SaveChanges();
+                return RedirectToAction("StageDetails", "Stage", new { id = GoNext.PassangerStageId -1 });
+            }
+            else if (GoNext.PassangerStageId == 5)
+            {
+                return PartialView("Error");
+            }
+            return View();
         }
         #endregion
     }
