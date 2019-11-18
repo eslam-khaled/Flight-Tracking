@@ -55,6 +55,7 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -212,9 +213,9 @@
     <Compile Include="Migrations\201911121958520_ModelsChange.Designer.cs">
       <DependentUpon>201911121958520_ModelsChange.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911131209576_Re-modeling.cs" />
-    <Compile Include="Migrations\201911131209576_Re-modeling.Designer.cs">
-      <DependentUpon>201911131209576_Re-modeling.cs</DependentUpon>
+    <Compile Include="Migrations\201911170926484_FKforPassanger.cs" />
+    <Compile Include="Migrations\201911170926484_FKforPassanger.Designer.cs">
+      <DependentUpon>201911170926484_FKforPassanger.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -235,15 +236,79 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\ihover.css" />
+    <Content Include="css\popuo-box.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\swipebox.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\about.jpg" />
+    <Content Include="images\arr.png" />
+    <Content Include="images\bann.jpg" />
+    <Content Include="images\contact.jpg" />
+    <Content Include="images\g1.jpg" />
+    <Content Include="images\g2.jpg" />
+    <Content Include="images\g3.jpg" />
+    <Content Include="images\g4.jpg" />
+    <Content Include="images\g5.jpg" />
+    <Content Include="images\g6.jpg" />
+    <Content Include="images\g7.jpg" />
+    <Content Include="images\icons.svg" />
+    <Content Include="images\p1.jpg" />
+    <Content Include="images\p2.jpg" />
+    <Content Include="images\p3.jpg" />
+    <Content Include="images\plan.jpg" />
+    <Content Include="images\search.png" />
+    <Content Include="images\services.jpg" />
+    <Content Include="images\t1.jpg" />
+    <Content Include="images\t2.jpg" />
+    <Content Include="images\t3.jpg" />
+    <Content Include="images\t4.jpg" />
+    <Content Include="images\video.jpg" />
+    <Content Include="JavaScript\MyJavaScript.js" />
+    <Content Include="js\bars.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\easing.js" />
+    <Content Include="js\jarallax.js" />
+    <Content Include="js\jquery-2.1.4.min.js" />
+    <Content Include="js\jquery.magnific-popup.js" />
+    <Content Include="js\jquery.swipebox.min.js" />
+    <Content Include="js\move-top.js" />
+    <Content Include="js\SmoothScroll.min.js" />
     <Content Include="obj\Debug\FlightTracking.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\FlightTracking.dll" />
     <Content Include="obj\Debug\FlightTracking.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="TempFonts\fontawesome-webfont.svg" />
+    <Content Include="TempFonts\glyphicons-halflings-regular.svg" />
+    <Content Include="TempImages\about.jpg" />
+    <Content Include="TempImages\arr.png" />
+    <Content Include="TempImages\bann.jpg" />
+    <Content Include="TempImages\contact.jpg" />
+    <Content Include="TempImages\g1.jpg" />
+    <Content Include="TempImages\g2.jpg" />
+    <Content Include="TempImages\g3.jpg" />
+    <Content Include="TempImages\g4.jpg" />
+    <Content Include="TempImages\g5.jpg" />
+    <Content Include="TempImages\g6.jpg" />
+    <Content Include="TempImages\g7.jpg" />
+    <Content Include="TempImages\icons.svg" />
+    <Content Include="TempImages\p1.jpg" />
+    <Content Include="TempImages\p2.jpg" />
+    <Content Include="TempImages\p3.jpg" />
+    <Content Include="TempImages\plan.jpg" />
+    <Content Include="TempImages\search.png" />
+    <Content Include="TempImages\services.jpg" />
+    <Content Include="TempImages\t1.jpg" />
+    <Content Include="TempImages\t2.jpg" />
+    <Content Include="TempImages\t3.jpg" />
+    <Content Include="TempImages\t4.jpg" />
+    <Content Include="TempImages\video.jpg" />
     <Content Include="Web.config" />
     <Content Include="Views\Plane\create.cshtml" />
     <Content Include="Views\Passanger\AddPassanger.cshtml" />
@@ -262,6 +327,23 @@
     <Content Include="Views\Stage\_StageDetails.cshtml" />
     <Content Include="Views\Passanger\_Index.cshtml" />
     <Content Include="Views\Stage\StageDetails.cshtml" />
+    <Content Include="Views\Passanger\_NextStage.cshtml" />
+    <Content Include="images\Thumbs.db" />
+    <Content Include="TempFonts\fontawesome-webfont.eot" />
+    <Content Include="TempFonts\fontawesome-webfont.ttf" />
+    <Content Include="TempFonts\fontawesome-webfont.woff" />
+    <Content Include="TempFonts\fontawesome-webfont.woff2" />
+    <Content Include="TempFonts\FontAwesome.otf" />
+    <Content Include="TempFonts\glyphicons-halflings-regular.eot" />
+    <Content Include="TempFonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="TempFonts\glyphicons-halflings-regular.woff" />
+    <Content Include="TempFonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="TempFonts\Montserrat-Bold.ttf" />
+    <Content Include="TempFonts\Montserrat-Regular.ttf" />
+    <Content Include="TempFonts\OpenSans-Bold.ttf" />
+    <Content Include="TempFonts\OpenSans-Regular.ttf" />
+    <Content Include="TempFonts\OpenSans-Semibold.ttf" />
+    <Content Include="TempImages\Thumbs.db" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -352,8 +434,8 @@
     <EmbeddedResource Include="Migrations\201911121958520_ModelsChange.resx">
       <DependentUpon>201911121958520_ModelsChange.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911131209576_Re-modeling.resx">
-      <DependentUpon>201911131209576_Re-modeling.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911170926484_FKforPassanger.resx">
+      <DependentUpon>201911170926484_FKforPassanger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.ModelsChange.resources" />
     <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.PassangerCurrentStage.resources" />
