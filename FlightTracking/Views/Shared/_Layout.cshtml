@@ -27,19 +27,19 @@
                         <nav>
                             <ul>
                                 <li class="active">
-                                    <a href="index.html" class="active"><span>Home</span></a>
+                                    @Html.ActionLink("Home","Index", "Home")
                                 </li>
                                 <li>
-                                    <a href="#about" class="scroll"><span>Track Passanger</span></a>
+                                    @Html.ActionLink("Track Passanger", "#", "#")
                                 </li>
                                 <li>
-                                    <a href="#team" class="scroll"><span>Plane</span></a>
+                                    @Html.ActionLink("Plane", "Index", "Plane")
                                 </li>
                                 <li>
-                                    <a href="#services" class="scroll"><span>Passanger</span></a>
+                                    @Html.ActionLink("Passanger", "Index", "Passanger")
                                 </li>
                                 <li>
-                                    <a href="#contact" class="scroll"><span>Log In</span></a>
+                                    @Html.ActionLink("Log In", "Login", "Account")
                                 </li>
                             </ul>
                         </nav>

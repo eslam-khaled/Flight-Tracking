@@ -29,7 +29,6 @@
             <td>
                 @Html.ActionLink("Edit", "EditPassanger", new { id = item.Id }) |
                 @Html.ActionLink("Next Stage", "MoveToNextStage", new { id = item.Id }) |
-                @*@Html.HiddenFor(m => m.StageID);*@
                 @Html.ActionLink("Delete", "DeletePassanger", new { id = item.Id })
             </td>
         </tr>

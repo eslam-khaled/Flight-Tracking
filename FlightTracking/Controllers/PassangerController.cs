@@ -18,19 +18,21 @@ namespace FlightTracking.Controllers
             context = new ApplicationDbContext();
         }
 
-        #region Get All Passangers
-        // GET: Passanger
+        #region Get Passangers
+        // GET: ALL Passanger
         public ActionResult Index()
         {
             var AllPassangers = context.passangers.ToList();
             return PartialView("_indexpassanger", AllPassangers);
         }
-            public ActionResult Index(int? id)
+        //GET: Passanger By Stage ID
+            public ActionResult IndexByStage(int? id)
         {
             var AllPassangers = context.passangers.Where(x => x.Stages.StageID == id).ToList();
             return View("_Index", AllPassangers);
         }
         #endregion
+
         #region details
         //public ActionResult Planepassaner(int id)
         //{
@@ -41,11 +43,13 @@ namespace FlightTracking.Controllers
 
         #region Add Passanger
         [HttpGet]
+
         public ActionResult AddPassanger()
         {
             return PartialView("_partialpassangeradd");
         }
         [HttpPost]
+
         public ActionResult AddPassanger(int id,Passanger passanger)
         {
             Stages stages = context.Stages.Where(x => x.StageID == 1).FirstOrDefault();
@@ -61,6 +65,7 @@ namespace FlightTracking.Controllers
         //DeletePassanger
         #region Delete
         [HttpGet]
+     
         public ActionResult DeletePassanger(int? id)
         {
             Passanger passanger = context.passangers.Find(id);
@@ -69,6 +74,7 @@ namespace FlightTracking.Controllers
         }
 
         [HttpPost]
+      
         [ValidateAntiForgeryToken]
         public ActionResult DeletePassanger(Passanger passanger, int id)
         {
@@ -83,6 +89,7 @@ namespace FlightTracking.Controllers
         //EditPassanger
         #region Edit
         [HttpGet]
+
         public ActionResult EditPassanger(int? id)
         {
             Passanger passanger = context.passangers.Find(id);
@@ -91,6 +98,7 @@ namespace FlightTracking.Controllers
         }
 
         [HttpPost]
+   
         [ValidateAntiForgeryToken]
         public ActionResult EditPassanger(Passanger passanger, int id)
         {
@@ -109,7 +117,8 @@ namespace FlightTracking.Controllers
         //{
         //    return RedirectToAction("");
         //}
-       // [HttpPost]
+        [HttpPost]
+   
         public ActionResult MoveToNextStage(int? id)
         {
             var GoNext = context.passangers.Where(x=>x.Id==id).SingleOrDefault();

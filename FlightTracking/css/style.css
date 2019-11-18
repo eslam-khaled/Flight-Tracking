@@ -1,9 +1,4 @@
-/*--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
+
 html, body{
     font-size: 100%;
 	font-family: 'Open Sans', sans-serif;
@@ -46,15 +41,15 @@ body a {
 	-o-transition:.5s ease-in-out;
 	-ms-transition:.5s ease-in-out;
 }
-.banner{
-	background:url(../images/bann.jpg) no-repeat 0px 0px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-	min-height:800px;
-	position: relative;
+.banner {
+    background: url(../images/bann.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    min-height: 800px;
+    position: relative;
 }
 .header{
 	padding:5em 0 10em;
