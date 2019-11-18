@@ -21,6 +21,7 @@ namespace FlightTracking.Controllers
         // GET: Stage
         public ActionResult StageDetails(int id )
         {
+            //id of stage
             var Details = context.Stages.Where(x => x.StageID == id).FirstOrDefault();
             Details.EstimatedTime += Convert.ToInt32(Details.ExtraTime);
             return View("_StageDetails", Details);
@@ -35,12 +36,12 @@ namespace FlightTracking.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddExtraTime(Stages stages, int id)
+        public ActionResult AddExtraTime(int ExtraTime, int id)
         {
             var addEx = context.Stages.Where(x => x.StageID == id).SingleOrDefault();
-            addEx.ExtraTime = stages.ExtraTime;
+            addEx.ExtraTime = ExtraTime;
             context.SaveChanges();
-            return RedirectToAction("StageDetails");
+            return RedirectToAction("StageDetails",new { id =id});
         }
         #endregion
     }

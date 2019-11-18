@@ -25,6 +25,7 @@ namespace FlightTracking.Controllers
         public ActionResult Index()
         {
             var plane = context.planes.ToList();
+           // var plane = context.planes.ToList();
             return View("Index",plane);
         }
 

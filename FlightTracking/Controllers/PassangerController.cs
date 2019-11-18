@@ -19,24 +19,28 @@ namespace FlightTracking.Controllers
         }
 
         #region Get All Passangers
-        // GET: Passanger
-        public ActionResult Index()
+        //GET: Passanger
+        public ActionResult Details(int id)
         {
-            var AllPassangers = context.passangers.ToList();
-            return PartialView("_indexpassanger", AllPassangers);
+            var Passanger = context.passangers.Find(id);
+            return PartialView("Details", Passanger);
         }
-            public ActionResult Index(int? id)
+
+        //take id of stage and return all passanger in this stage
+        // [HttpPost]
+        public ActionResult Index(int? id)
         {
             var AllPassangers = context.passangers.Where(x => x.Stages.StageID == id).ToList();
             return View("_Index", AllPassangers);
         }
         #endregion
+        //take id of plane and return all passanger in this plane
         #region details
-        //public ActionResult Planepassaner(int id)
-        //{
-        //    var passangers = context.passangers.Where(a => a.id_plane == id).ToList();
-        //    return PartialView("_indexpassanger", passangers);
-        //}
+        public ActionResult Planepassaner(int id)
+        {
+            var passangers = context.passangers.Where(a => a.PassangerPlaneId == id).ToList();
+            return PartialView("_indexpassanger", passangers);
+        }
         #endregion
 
         #region Add Passanger
@@ -50,6 +54,7 @@ namespace FlightTracking.Controllers
         {
             Stages stages = context.Stages.Where(x => x.StageID == 1).FirstOrDefault();
             passanger.Stages = stages;
+            passanger.PassangerPlaneId = id;
             context.passangers.Add(passanger);
             context.SaveChanges();
            
@@ -60,23 +65,21 @@ namespace FlightTracking.Controllers
 
         //DeletePassanger
         #region Delete
-        [HttpGet]
-        public ActionResult DeletePassanger(int? id)
-        {
-            Passanger passanger = context.passangers.Find(id);
-            var ResDetails = context.passangers.Where(x => x.Id == id).FirstOrDefault();
-            return View(ResDetails);
-        }
+        //[HttpGet]
+        //public ActionResult DeletePassanger(int? id)
+        //{
+        //    var ResDetails = context.passangers.Where(x => x.Id == id).FirstOrDefault();
+        //    return View(ResDetails);
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeletePassanger(Passanger passanger, int id)
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult DeletePassanger(int id )
         {
             var MyDel = context.passangers.Where(c => c.Id == id).FirstOrDefault();
             context.passangers.Remove(MyDel);
             context.SaveChanges();
-
-            return RedirectToAction("Index");
+            return RedirectToAction("Details","Plane", new { id=MyDel.PassangerPlaneId } );
         }
         #endregion
 
@@ -85,7 +88,6 @@ namespace FlightTracking.Controllers
         [HttpGet]
         public ActionResult EditPassanger(int? id)
         {
-            Passanger passanger = context.passangers.Find(id);
             var ResDetails = context.passangers.Where(x => x.Id == id).FirstOrDefault();
             return View(ResDetails);
         }
@@ -121,7 +123,9 @@ namespace FlightTracking.Controllers
             }
             else if (GoNext.PassangerStageId == 5)
             {
-                return PartialView("Error");
+                GoNext.PassangerStageId += 4;
+                context.SaveChanges();
+                return RedirectToAction("StageDetails", "Stage", new { id = GoNext.PassangerStageId - 4 });
             }
             return View();
         }
