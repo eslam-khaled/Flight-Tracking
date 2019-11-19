@@ -1,0 +1,51 @@
+﻿@model FlightTracking.Models.Passanger
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Passanger</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.plane.AirLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plane.AirLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stages.StageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stages.StageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nationality)
+        </dd>
+
+    </dl>
+</div>
+<p>
+  
+    @Html.ActionLink("Back to List", "Details",new {controller ="Plane", id=Model.PassangerPlaneId})
+</p>
