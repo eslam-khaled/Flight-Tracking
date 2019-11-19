@@ -26,18 +26,47 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <li>
+                            @Html.ActionLink("Plane", "StageDetails", "Stage")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Plane", "Index", "Plane")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Passanger", "Index", "Passanger")
+                        </li>
+                        <li>
+                            @Html.ActionLink("LogOut", "LogOff", "Account")
+                        </li>
+                    }
+                    @if (User.IsInRole("SuperAdmin") && User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.ActionLink("Settings", "Index", "Roles")
+                        </li>
+                        <li>
+                            @Html.ActionLink("New User", "Register", "Account")
+                        </li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.ActionLink("Log Out", "LogOff", "Account")
+                        </li>
+                    }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Link</a></li>
-
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                    <a href="#">
+                        @*<a href="#">*@
                         <img src="~/TempImages/User.jpg" style="width:49px; height:49px; border-radius:50% 50%;" />
-                    </a>
+                        @*</a>*@
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

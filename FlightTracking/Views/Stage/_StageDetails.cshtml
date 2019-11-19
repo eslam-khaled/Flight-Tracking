@@ -33,11 +33,12 @@
 </div>
 
 @*Extra time button which only show the hidden extra time form, then it hides itself after click*@
-<div class="form-group">
+<div class="form-group container-fluid" style="text-align:center">
     <div class="col-md-offset-2 col-md-10">
         <input type="submit" id="ExTimeBtn" value="Extra Time" class="btn btn-primary" />
     </div>
 </div>
+<br />
 
 @*Add Extra Time*@
 <div id="ExTimeTxtBox" hidden="hidden">
@@ -61,7 +62,7 @@
         </div>
     }
 </div>
-
+<br />
 @*Render Index partial view which holds the passangers index*@
 <div>
     @Html.Action("Index", "Passanger", new { id = Model.StageID })

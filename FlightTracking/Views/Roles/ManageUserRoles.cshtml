@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "ManageUserRoles";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<span class="text-info"> @ViewBag.ResultMessage</span>
+<h2>Manage User Roles</h2>
+@Html.ActionLink("Create New Role", "Create", null, new { @class = "btn btn-primary" }) | @Html.ActionLink("Manage User Role", "ManageUserRoles", null, new { @class = "btn btn-primary" })
+<hr />
+
+<h2>Role Add to User</h2>
+
+@using (Html.BeginForm("RoleAddToUser", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div>
+        <div>Username : @Html.TextBox("UserName", "", htmlAttributes: new { @class = "form-control" })</div>
+        <div>Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...", htmlAttributes: new { @class = "form-control" })</div>
+
+    </div>
+
+    <div><input type="submit" class="btn-primary" value="Save" /></div>
+}
+<hr />
+<h3>Get Roles for a User</h3>
+@using (Html.BeginForm("GetRoles", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <div>Username : @Html.TextBox("UserName", "", htmlAttributes: new { @class = "form-control" })</div>
+        <div>
+            <input type="submit" class="btn-primary" value="Get Roles for this User" />
+        </div>
+    </div>
+}
+
+@if (ViewBag.RolesForThisUser != null)
+{
+    <div style="background-color:yellow;">
+        <h3>Roles for this user </h3>
+        <ol class="list-group-item-info">
+            @foreach (string s in ViewBag.RolesForThisUser)
+            {
+                <li>@s</li>
+            }
+        </ol>
+    </div>
+}
+
+<hr />
+<h3>Delete A User from a Role</h3>
+
+@using (Html.BeginForm("DeleteRoleForUser", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div>
+        <div>User name : @Html.TextBox("UserName", "", htmlAttributes: new { @class = "form-control" })</div>
+        <div>Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...", htmlAttributes: new { @class = "form-control" })</div>
+
+    </div>
+
+    <div><input type="submit" class="btn-primary" value="Save" /></div>
+}

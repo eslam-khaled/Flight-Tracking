@@ -1,0 +1,64 @@
+﻿@model FlightTracking.Models.PassangerSearch
+@{
+    ViewBag.Title = "PassangerSearchDetails";
+    Layout = "~/Views/Shared/_LayoutExternal.cshtml";
+}
+
+<h2>PassangerSearchDetails</h2>
+<h4>Passangers</h4>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PassangerName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PassangerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassangerNationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassangerNationality)
+        </dd>
+    </dl>
+</div>
+<div>
+    <h4>Stages</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PicturePath)
+        </dt>
+        <dd>
+            <img style="height:100%; width:100%" src="@Model.PicturePath" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StageEstimatedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StageEstimatedTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StageExtraTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StageExtraTime)
+        </dd>
+
+    </dl>
+</div>
+

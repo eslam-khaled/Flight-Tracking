@@ -27,9 +27,7 @@
                 @Html.DisplayFor(modelItem => item.Nationality)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditPassanger", new { id = item.Id }) |
-                @Html.ActionLink("Next Stage", "MoveToNextStage", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "DeletePassanger", new { id = item.Id })
+                @Html.ActionLink("Next Stage", "MoveToNextStage", new { id = item.Id }) 
             </td>
         </tr>
     }

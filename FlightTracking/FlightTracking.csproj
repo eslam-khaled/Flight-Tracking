@@ -173,6 +173,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PassangerController.cs" />
     <Compile Include="Controllers\PlaneController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\StageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,12 +218,17 @@
     <Compile Include="Migrations\201911170926484_FKforPassanger.Designer.cs">
       <DependentUpon>201911170926484_FKforPassanger.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911191559136_lastWorkValidation.cs" />
+    <Compile Include="Migrations\201911191559136_lastWorkValidation.Designer.cs">
+      <DependentUpon>201911191559136_lastWorkValidation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CountryFrom.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Passanger.cs" />
+    <Compile Include="Models\PassangerSearch.cs" />
     <Compile Include="Models\Plane.cs" />
     <Compile Include="Models\Stages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -236,6 +242,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ErorrView.css" />
+    <Content Include="Content\ErorrView.js" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\ihover.css" />
@@ -308,9 +316,9 @@
     <Content Include="TempImages\t2.jpg" />
     <Content Include="TempImages\t3.jpg" />
     <Content Include="TempImages\t4.jpg" />
+    <Content Include="TempImages\User.jpg" />
     <Content Include="TempImages\video.jpg" />
     <Content Include="Web.config" />
-    <Content Include="Views\Plane\create.cshtml" />
     <Content Include="Views\Passanger\AddPassanger.cshtml" />
     <Content Include="Views\Passanger\Index.cshtml" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
@@ -324,9 +332,7 @@
     <Content Include="Views\Plane\Details.cshtml" />
     <Content Include="Views\Plane\Edit.cshtml" />
     <Content Include="Views\Plane\Index.cshtml" />
-    <Content Include="Views\Stage\_StageDetails.cshtml" />
     <Content Include="Views\Passanger\_Index.cshtml" />
-    <Content Include="Views\Stage\StageDetails.cshtml" />
     <Content Include="Views\Passanger\_NextStage.cshtml" />
     <Content Include="images\Thumbs.db" />
     <Content Include="TempFonts\fontawesome-webfont.eot" />
@@ -349,6 +355,17 @@
     <Content Include="Views\Shared\_indexpassanger.cshtml" />
     <Content Include="Views\Shared\_partialaddplane.cshtml" />
     <Content Include="Views\Shared\_partialpassangeradd.cshtml" />
+    <Content Include="Views\Passanger\Details.cshtml" />
+    <Content Include="Views\Shared\_Finish.cshtml" />
+    <Content Include="Views\Shared\_LayoutInternal.cshtml" />
+    <Content Include="Views\Stage\StageDetails.cshtml" />
+    <Content Include="Views\Stage\_StageDetails.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\ManageUserRoles.cshtml" />
+    <Content Include="Views\Passanger\PassangerSearch.cshtml" />
+    <Content Include="Views\Passanger\PassangerSearchDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -369,7 +386,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutExternal.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -439,6 +456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911170926484_FKforPassanger.resx">
       <DependentUpon>201911170926484_FKforPassanger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911191559136_lastWorkValidation.resx">
+      <DependentUpon>201911191559136_lastWorkValidation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.ModelsChange.resources" />
     <EmbeddedResource Include="obj\Debug\FlightTracking.Migrations.PassangerCurrentStage.resources" />

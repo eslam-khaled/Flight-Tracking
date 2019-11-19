@@ -27,20 +27,38 @@
                         <nav>
                             <ul>
                                 <li class="active">
-                                    @Html.ActionLink("Home","Index", "Home")
+                                    @Html.ActionLink("Home", "Index", "Home")
                                 </li>
                                 <li>
-                                    @Html.ActionLink("Track Passanger", "#", "#")
+                                    @Html.ActionLink("Track Passanger", "PassangerSearch", "Passanger")
                                 </li>
-                                <li>
-                                    @Html.ActionLink("Plane", "Index", "Plane")
-                                </li>
-                                <li>
-                                    @Html.ActionLink("Passanger", "Index", "Passanger")
-                                </li>
-                                <li>
-                                    @Html.ActionLink("Log In", "Login", "Account")
-                                </li>
+
+                                @*@if (User.IsInRole("SuperAdmin") & User.Identity.IsAuthenticated)
+        {
+            <li>
+                @Html.ActionLink("Settings", "Index", "Roles")
+            </li>
+            <li>
+                @Html.ActionLink("New User", "Register", "Account")
+            </li>
+        }*@
+
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <li>
+                                        @Html.ActionLink("Log In", "Login", "Account")
+                                    </li>
+                                }
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li>
+                                        @Html.ActionLink("Stages", "StageDetails", "Stage" ,new { id=1},"")
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Log Out", "LogOff", "Account")
+                                    </li>
+
+                                }
                             </ul>
                         </nav>
                         <div class="menu-icon animated wow zoomIn" data-wow-duration="1000ms" data-wow-delay="800ms"><span></span></div>
@@ -73,9 +91,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            
-        </footer>
+        <footer></footer>
     </div>
 
 

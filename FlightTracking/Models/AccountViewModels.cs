@@ -7,11 +7,13 @@ namespace FlightTracking.Models
     {
         [Required]
         [Display(Name = "Email")]
+        [EmailAddress]
         public string Email { get; set; }
     }
 
     public class ExternalLoginListViewModel
     {
+        [Url]
         public string ReturnUrl { get; set; }
     }
 
@@ -19,13 +21,15 @@ namespace FlightTracking.Models
     {
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+       
         public string ReturnUrl { get; set; }
+        [Display(Name = "make ahint to remember you ?")]
         public bool RememberMe { get; set; }
     }
 
     public class VerifyCodeViewModel
     {
-        [Required]
+        [Required(ErrorMessage ="enter provider name ")]
         public string Provider { get; set; }
 
         [Required]
@@ -35,7 +39,7 @@ namespace FlightTracking.Models
 
         [Display(Name = "Remember this browser?")]
         public bool RememberBrowser { get; set; }
-
+        [Display(Name = "make ahint to remember you ?")]
         public bool RememberMe { get; set; }
     }
 
@@ -43,6 +47,7 @@ namespace FlightTracking.Models
     {
         [Required]
         [Display(Name = "Email")]
+        [EmailAddress]
         public string Email { get; set; }
     }
 
@@ -58,7 +63,7 @@ namespace FlightTracking.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "make ahint to remember me?")]
         public bool RememberMe { get; set; }
     }
 
@@ -74,7 +79,7 @@ namespace FlightTracking.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
-
+        [Required(ErrorMessage ="confirm your passward.")]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]

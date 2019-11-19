@@ -6,12 +6,14 @@ using System.Web.Mvc;
 using System.Web.UI;
 using System.Windows;
 using FlightTracking.Models;
+using System.Net;
 
 
 namespace FlightTracking.Controllers
 {
     public class PassangerController : Controller
     {
+        string path="../images/";
         ApplicationDbContext context;
         public PassangerController()
         {
@@ -19,14 +21,9 @@ namespace FlightTracking.Controllers
         }
 
         #region Get Passangers
-        // GET: ALL Passanger
-        public ActionResult Index()
-        {
-            var AllPassangers = context.passangers.ToList();
-            return PartialView("_indexpassanger", AllPassangers);
-        }
+ 
         //GET: Passanger By Stage ID
-            public ActionResult IndexByStage(int? id)
+            public ActionResult Index(int? id =1)
         {
             var AllPassangers = context.passangers.Where(x => x.Stages.StageID == id).ToList();
             return View("_Index", AllPassangers);
@@ -34,16 +31,15 @@ namespace FlightTracking.Controllers
         #endregion
 
         #region details
-        //public ActionResult Planepassaner(int id)
-        //{
-        //    var passangers = context.passangers.Where(a => a.id_plane == id).ToList();
-        //    return PartialView("_indexpassanger", passangers);
-        //}
+        public ActionResult Planepassaner(int id)
+        {
+            var passangers = context.passangers.Where(a => a.PassangerPlaneId == id).ToList();
+            return PartialView("_indexpassanger", passangers);
+        }
         #endregion
 
         #region Add Passanger
         [HttpGet]
-
         public ActionResult AddPassanger()
         {
             return PartialView("_partialpassangeradd");
@@ -117,8 +113,7 @@ namespace FlightTracking.Controllers
         //{
         //    return RedirectToAction("");
         //}
-        [HttpPost]
-   
+
         public ActionResult MoveToNextStage(int? id)
         {
             var GoNext = context.passangers.Where(x=>x.Id==id).SingleOrDefault();
@@ -133,6 +128,46 @@ namespace FlightTracking.Controllers
                 return PartialView("Error");
             }
             return View();
+        }
+        #endregion
+        #region Passanger Search
+        public ActionResult PassangerSearch()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PassangerSearch(int? Id)
+        {
+
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Passanger passanger = context.passangers.Find(Id);
+            if (passanger == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                var result = (from p in context.passangers
+                              join s in context.Stages
+                              on p.PassangerStageId equals s.StageID
+                              where p.Id == Id
+                              select new PassangerSearch
+                              {
+                                  PicturePath = path + s.Picture.Trim(),
+                                  PassangerName = p.Name,
+                                  PassangerNationality = p.Nationality,
+                                  StageName = s.StageName,
+                                  StageExtraTime = s.ExtraTime,
+                                  StageEstimatedTime = s.EstimatedTime
+                              }).FirstOrDefault();
+
+                return View("PassangerSearchDetails", result);
+            }
+
         }
         #endregion
     }
