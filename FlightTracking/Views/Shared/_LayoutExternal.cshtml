@@ -33,22 +33,82 @@
                                     @Html.ActionLink("Track Passanger", "PassangerSearch", "Passanger")
                                 </li>
 
+                                @{
+                                    if (User.Identity.IsAuthenticated && User.IsInRole("LuggageManager"))
+                                    {
+                                        <li>
+                                            @Html.ActionLink("Luggage Stage", "StageDetails", "Stage", new { id = 2 }, "")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Log Out", "LogOff", "Account")
+                                        </li>
+                                    }
+                                    else if (User.Identity.IsAuthenticated && User.IsInRole("OnPlaneManager"))
+                                    {
+                                        <li>
+                                            @Html.ActionLink("On Plane Stage", "StageDetails", "Stage", new { id = 1 }, "")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Planes", "Plane", "Plane")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Log Out", "LogOff", "Account")
+                                        </li>
+                                    }
+                                    else if (User.Identity.IsAuthenticated && User.IsInRole("InspectingManager"))
+                                    {
+                                        <li>
+                                            @Html.ActionLink("Inspecting Stage", "StageDetails", "Stage", new { id = 3 }, "")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Log Out", "LogOff", "Account")
+                                        </li>
+                                    }
+                                    else if (User.Identity.IsAuthenticated && User.IsInRole("CustomManager"))
+                                    {
+                                        <li>
+                                            @Html.ActionLink("Customs Stage", "StageDetails", "Stage", new { id = 4 }, "")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Log Out", "LogOff", "Account")
+                                        </li>
+                                    }
+                                    else if (User.Identity.IsAuthenticated && User.IsInRole("PapersManager"))
+                                    {
+
+                                        <li>
+                                            @Html.ActionLink("Papers Stage", "StageDetails", "Stage", new { id = 5 }, "")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Log Out", "LogOff", "Account")
+                                        </li>
+                                    }
+                                    else if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                                    {
+
+                                        <li>
+                                            @Html.ActionLink("Papers Stage", "StageDetails", "Stage", new { id = 1 }, "")
+                                        </li>
+                                        <li>
+
+                                            @using (Html.BeginForm("LogOff", "Account"))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <input type="submit" value="Log Out" class="btn btn-danger" />
+                                            }
+                                        </li>
+                                    }
+                                }
+
+
                                 @if (!User.Identity.IsAuthenticated)
                                 {
                                     <li>
                                         @Html.ActionLink("Log In", "Login", "Account")
                                     </li>
                                 }
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    <li>
-                                        @Html.ActionLink("Stages", "StageDetails", "Stage" ,new { id=1},"")
-                                    </li>
-                                    <li>
-                                        @Html.ActionLink("Log Out", "LogOff", "Account")
-                                    </li>
 
-                                }
+
                             </ul>
                         </nav>
                         <div class="menu-icon animated wow zoomIn" data-wow-duration="1000ms" data-wow-delay="800ms"><span></span></div>
@@ -60,11 +120,11 @@
                     <p>Find Travel Perfection With the Professionalism of Experts.</p>
                 </div>
                 @*<div class="subscribe">
-                    <form action="#" method="post">
-                        <input type="search" class="Search" name="Search" required="">
-                        <input type="submit" value="">
-                    </form>
-                </div>*@
+                        <form action="#" method="post">
+                            <input type="search" class="Search" name="Search" required="">
+                            <input type="submit" value="">
+                        </form>
+                    </div>*@
                 <div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
                     <ul class="top-links">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
