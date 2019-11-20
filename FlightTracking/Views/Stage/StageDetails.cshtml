@@ -11,36 +11,39 @@
 <div>
     <h4>Stages</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => Model.stages.StageName)
-        </dt>
+    <dl>
+        <div class="row form-group col-md-4">
+            <dt>
+                <h1> @Html.DisplayNameFor(model => Model.stages.StageName) :</h1>
+            </dt>
+            <dd>
+                <h3>  @Html.DisplayFor(model => Model.stages.StageName)</h3>
+            </dd>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => Model.stages.StageName)
-        </dd>
+        <div class="row form-group col-md-4">
+            <dt>
+                <h1> @Html.DisplayNameFor(model => Model.stages.EstimatedTime) : </h1>
+            </dt>
+            <dd>
+                <h3> @Html.DisplayFor(model => Model.stages.EstimatedTime) Minutes</h3>
+            </dd>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => Model.stages.EstimatedTime)
-        </dt>
+        <div class="row form-group col-md-4">
+            <dt>
+                <h1> @Html.DisplayNameFor(model => Model.stages.ExtraTime) :</h1>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => Model.stages.EstimatedTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => Model.stages.ExtraTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => Model.stages.ExtraTime)
-        </dd>
-
+            <dd>
+                <h3> @Html.DisplayFor(model => Model.stages.ExtraTime) Minutes</h3>
+            </dd>
+        </div>
     </dl>
 </div>
 
 @*Extra time button which only show the hidden extra time form, then it hides itself after click*@
-<div class="form-group container-fluid" style="text-align:center">
+<div class="form-group container-fluid" style="text-align:center; padding-left:220px">
     <div class="col-md-offset-2 col-md-10">
         <input type="submit" id="ExTimeBtn" value="Extra Time" class="btn btn-primary" />
     </div>
@@ -54,19 +57,15 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <div class="form-group">
+            <div class="form-group" style="margin-left:590px; margin-bottom:100px;">
+
                 @Html.LabelFor(model => Model.stages.ExtraTime, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-md-3">
                     @Html.EditorFor(model => Model.stages.ExtraTime, new { htmlAttributes = new { @class = "form-control" } })
-                    @*@Html.ValidationMessageFor(model => Model.stages.ExtraTime, "", new { @class = "text-danger" })*@
-
                 </div>
-
-               
-
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Add Extra Time" class="btn btn-success" />
+                        <input type="submit" style="margin-top:20px;margin-left:10px;" value="Add Extra Time" class="btn btn-success" />
                     </div>
                 </div>
             </div>
@@ -77,18 +76,19 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "AddPassanger")
-</p>
+@*<p>
+        @Html.ActionLink("Create New", "AddPassanger")
+    </p>*@
 <table class="table">
     <tr>
         <th>
-            Passenger Name
+            <h3><b>Passenger Name</b></h3>
         </th>
         <th>
-            Nationality
+            <h3><b> Nationality</b></h3>
         </th>
         <th>
+            <h3><b> Action</b></h3>
         </th>
     </tr>
 

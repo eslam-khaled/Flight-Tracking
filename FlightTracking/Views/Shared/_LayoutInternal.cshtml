@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -31,16 +31,13 @@
                     {
 
                         <li>
-                            @Html.ActionLink("Plane", "StageDetails", "Stage")
+                            @Html.ActionLink("Stage", "StageDetails", "Stage",new { id=1},"")
                         </li>
                         <li>
                             @Html.ActionLink("Plane", "Index", "Plane")
                         </li>
                         <li>
                             @Html.ActionLink("Passanger", "Index", "Passanger")
-                        </li>
-                        <li>
-                            @Html.ActionLink("LogOut", "LogOff", "Account")
                         </li>
                     }
                     @if (User.IsInRole("SuperAdmin") && User.Identity.IsAuthenticated)
@@ -52,15 +49,15 @@
                             @Html.ActionLink("New User", "Register", "Account")
                         </li>
                     }
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>
                             @Html.ActionLink("Log Out", "LogOff", "Account")
                         </li>
                     }
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>

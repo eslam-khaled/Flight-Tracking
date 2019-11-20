@@ -33,16 +33,6 @@
                                     @Html.ActionLink("Track Passanger", "PassangerSearch", "Passanger")
                                 </li>
 
-                                @*@if (User.IsInRole("SuperAdmin") & User.Identity.IsAuthenticated)
-        {
-            <li>
-                @Html.ActionLink("Settings", "Index", "Roles")
-            </li>
-            <li>
-                @Html.ActionLink("New User", "Register", "Account")
-            </li>
-        }*@
-
                                 @if (!User.Identity.IsAuthenticated)
                                 {
                                     <li>
@@ -69,12 +59,12 @@
                     <h3>Enjoy Your Dream Vacation</h3>
                     <p>Find Travel Perfection With the Professionalism of Experts.</p>
                 </div>
-                <div class="subscribe">
+                @*<div class="subscribe">
                     <form action="#" method="post">
                         <input type="search" class="Search" name="Search" required="">
                         <input type="submit" value="">
                     </form>
-                </div>
+                </div>*@
                 <div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
                     <ul class="top-links">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>

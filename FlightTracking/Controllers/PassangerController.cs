@@ -26,7 +26,7 @@ namespace FlightTracking.Controllers
             public ActionResult Index(int? id =1)
         {
             var AllPassangers = context.passangers.Where(x => x.Stages.StageID == id).ToList();
-            return View("_Index", AllPassangers);
+            return View("Index", AllPassangers);
         }
         #endregion
 
