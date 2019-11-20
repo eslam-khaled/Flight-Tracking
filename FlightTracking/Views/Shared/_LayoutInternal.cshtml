@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -27,19 +27,61 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
 
-                    @if (User.Identity.IsAuthenticated)
+
+                    @*Stage Managers Rules to show each Stage as same as its Manager*@
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("OnPlaneManager"))
                     {
 
                         <li>
-                            @Html.ActionLink("Stage", "StageDetails", "Stage",new { id=1},"")
+                            @Html.ActionLink("On Plane Stage", "StageDetails", "Stage", new { id = 1 }, "")
                         </li>
                         <li>
                             @Html.ActionLink("Plane", "Index", "Plane")
                         </li>
+                    }
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("LuggageManager"))
+                    {
+
                         <li>
-                            @Html.ActionLink("Passanger", "Index", "Passanger")
+                            @Html.ActionLink("Luggage Stage", "StageDetails", "Stage", new { id = 2 }, "")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Plane", "Index", "Plane")
                         </li>
                     }
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("InspectingManager"))
+                    {
+
+                        <li>
+                            @Html.ActionLink("Inspecting Stage", "StageDetails", "Stage", new { id = 3 }, "")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Plane", "Index", "Plane")
+                        </li>
+                    }
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("CustomManager"))
+                    {
+
+                        <li>
+                            @Html.ActionLink("Customs Stage", "StageDetails", "Stage", new { id = 4 }, "")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Plane", "Index", "Plane")
+                        </li>
+                    }
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("PapersManager"))
+                    {
+
+                        <li>
+                            @Html.ActionLink("Papers Stage", "StageDetails", "Stage", new { id = 4 }, "")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Plane", "Index", "Plane")
+                        </li>
+                    }
+                    @*Stage Managers Rules to show each Stage as same as its Manager*@
+
+
                     @if (User.IsInRole("SuperAdmin") && User.Identity.IsAuthenticated)
                     {
                         <li>
@@ -49,7 +91,7 @@
                             @Html.ActionLink("New User", "Register", "Account")
                         </li>
                     }
-                    
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)
