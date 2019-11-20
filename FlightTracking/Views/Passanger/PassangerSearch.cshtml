@@ -4,9 +4,20 @@
     Layout = "~/Views/Shared/_LayoutExternal.cshtml";
 }
 
-<h2>PassangerSearch</h2>
-<label>Search for your passanger</label>
-<form method="post">
-    <input type="text" name="Id" />
-    <input type="submit" />
-</form>
+<hr>
+<h2 class="text-center text-capitalize text-primary" style="margin:40px 0px;">Passanger Search</h2>
+<div class="text-center" style="margin:0px 35%;" >
+    <label class="text-center"style="margin-bottom:20px">Search for your passanger</label>
+
+    <form method="post" >
+        <div class="form-group">
+            
+            <input type="text" class="form-control text-center"  name="Id" />
+        </div>
+        
+        <input type="submit" class="btn btn-success" value="Search" />
+    </form>
+
+
+
+</div>

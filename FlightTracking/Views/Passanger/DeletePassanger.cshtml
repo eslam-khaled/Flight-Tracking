@@ -2,6 +2,9 @@
 
 @{
     ViewBag.Title = "DeletePassanger";
+   
+        Html.EnableClientValidation(true);
+    
 }
 
 <h2>DeletePassanger</h2>
@@ -37,7 +40,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

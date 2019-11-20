@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "create";
     Layout = null;
+    Html.EnableClientValidation(true);
 }
 
 
@@ -66,7 +67,7 @@
         </div>*@
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary" onclick="EndUpdatePage()">Add</button>
     </div>
 </div>
     @*</div>*@
@@ -77,4 +78,11 @@
 
 
 }
+<script>
+    function EndUpdatePage() {
 
+        $('#addplane').modal('handleUpdate')
+        $('#addplane').modal('hide')
+
+}
+</script>

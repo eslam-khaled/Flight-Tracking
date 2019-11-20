@@ -99,15 +99,19 @@ namespace FlightTracking.Controllers
                 context.SaveChanges();
                 return PartialView("_partialaddplane",plane);
             }
-            return View("Error");
+            return RedirectToAction("create",plane);
           
         }
         public ActionResult delete(int id)
         {
             var record = context.planes.Find(id);
             context.planes.Remove(record);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
         }
         #endregion
 

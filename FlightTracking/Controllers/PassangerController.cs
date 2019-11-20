@@ -58,11 +58,14 @@ namespace FlightTracking.Controllers
         {
             //Stages stages = context.Stages.Where(x => x.StageID == 1).FirstOrDefault();
             //passanger.Stages = stages;
-            passanger.PassangerStageId = 1;
-            passanger.PassangerPlaneId = id;
-            context.passangers.Add(passanger);
-            context.SaveChanges();
-           
+            if (ModelState.IsValid)
+            {
+                passanger.PassangerStageId = 1;
+                passanger.PassangerPlaneId = id;
+                context.passangers.Add(passanger);
+                context.SaveChanges();
+                return PartialView("_AppendPassanger", passanger);
+            }
             return PartialView("_AppendPassanger", passanger);
             
         }

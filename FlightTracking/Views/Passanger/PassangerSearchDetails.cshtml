@@ -1,64 +1,31 @@
 ﻿@model FlightTracking.Models.PassangerSearch
 @{
+   
     ViewBag.Title = "PassangerSearchDetails";
     Layout = "~/Views/Shared/_LayoutExternal.cshtml";
 }
 
-<h2>PassangerSearchDetails</h2>
-<h4>Passangers</h4>
-<hr />
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PassangerName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PassangerName)
-        </dd>
+<h2 class="text-center text-capitalize">Passanger Search Details</h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PassangerNationality)
-        </dt>
+<hr  style="margin:50px 0px"/>
+<div style="width:100% ;height:150px;background-image:url(@Model.PicturePath)">
 
-        <dd>
-            @Html.DisplayFor(model => model.PassangerNationality)
-        </dd>
-    </dl>
+    <h1 class="text-center" style="color:white; padding-top:50%">  @Html.DisplayFor(model => model.StageName)</h1>
 </div>
-<div>
-    <h4>Stages</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PicturePath)
-        </dt>
-        <dd>
-            <img style="height:100%; width:100%" src="@Model.PicturePath" />
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.StageName)
-        </dt>
+<div  >
+    <label class="text-capitalize text-primary">Passenger Name :</label>
+    @Html.DisplayFor(model => model.PassangerName)
 
-        <dd>
-            @Html.DisplayFor(model => model.StageName)
-        </dd>
+    <br />
+    
+    <label class="text-capitalize text-primary">Passanger Nationality :</label>
+    @Html.DisplayFor(model => model.PassangerNationality)
+    
+    <br />
+    <label class="text-capitalize text-primary"> Estimated Time For This Stage:</label>
+    @Html.DisplayFor(model => model.StageEstimatedTime)<span> Minuts . </span>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StageEstimatedTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StageEstimatedTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StageExtraTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StageExtraTime)
-        </dd>
-
-    </dl>
 </div>
+
+
 

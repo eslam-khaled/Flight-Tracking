@@ -245,12 +245,14 @@
     <Content Include="Content\ErorrView.css" />
     <Content Include="Content\ErorrView.js" />
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\dropdown.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\ihover.css" />
     <Content Include="css\popuo-box.css" />
     <Content Include="css\style.css" />
     <Content Include="css\swipebox.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -368,6 +370,16 @@
     <Content Include="Views\Roles\ManageUserRoles.cshtml" />
     <Content Include="Views\Passanger\PassangerSearch.cshtml" />
     <Content Include="Views\Passanger\PassangerSearchDetails.cshtml" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\Montserrat-Bold.ttf" />
+    <Content Include="fonts\Montserrat-Regular.ttf" />
+    <Content Include="fonts\OpenSans-Bold.ttf" />
+    <Content Include="fonts\OpenSans-Regular.ttf" />
+    <Content Include="fonts\OpenSans-Semibold.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

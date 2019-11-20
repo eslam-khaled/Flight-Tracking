@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "EditPassanger";
     Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+    
+        Html.EnableClientValidation(true);
+    
 }
 
 <h2>EditPassanger</h2>
@@ -11,7 +14,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal col-md-5">
         <h4>Passanger</h4>
         <hr />

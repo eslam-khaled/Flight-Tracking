@@ -32,6 +32,7 @@ namespace FlightTracking.Controllers
         public ActionResult StageDetails(int id)
         {
             //id of stage
+            
             var Details = context.Stages.Where(x => x.StageID == id).FirstOrDefault();
             //Details.EstimatedTime += Convert.ToInt32(Details.ExtraTime);
             var passenger = context.passangers.Where(x => x.PassangerStageId == id).ToList();

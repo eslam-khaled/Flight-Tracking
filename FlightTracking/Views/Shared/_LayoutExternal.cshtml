@@ -13,6 +13,7 @@
     <link href="//fonts.googleapis.com/css?family=Merienda:400,700" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- //fonts -->
+  
 </head>
 <body>
     <!-- banner -->
@@ -39,39 +40,29 @@
                                         <li>
                                             @Html.ActionLink("Luggage Stage", "StageDetails", "Stage", new { id = 2 }, "")
                                         </li>
-                                        <li>
-                                            @Html.ActionLink("Log Out", "LogOff", "Account")
-                                        </li>
+
                                     }
                                     else if (User.Identity.IsAuthenticated && User.IsInRole("OnPlaneManager"))
                                     {
                                         <li>
                                             @Html.ActionLink("On Plane Stage", "StageDetails", "Stage", new { id = 1 }, "")
                                         </li>
-                                        <li>
-                                            @Html.ActionLink("Planes", "Plane", "Plane")
-                                        </li>
-                                        <li>
-                                            @Html.ActionLink("Log Out", "LogOff", "Account")
-                                        </li>
+
+
                                     }
                                     else if (User.Identity.IsAuthenticated && User.IsInRole("InspectingManager"))
                                     {
                                         <li>
                                             @Html.ActionLink("Inspecting Stage", "StageDetails", "Stage", new { id = 3 }, "")
                                         </li>
-                                        <li>
-                                            @Html.ActionLink("Log Out", "LogOff", "Account")
-                                        </li>
+
                                     }
                                     else if (User.Identity.IsAuthenticated && User.IsInRole("CustomManager"))
                                     {
                                         <li>
                                             @Html.ActionLink("Customs Stage", "StageDetails", "Stage", new { id = 4 }, "")
                                         </li>
-                                        <li>
-                                            @Html.ActionLink("Log Out", "LogOff", "Account")
-                                        </li>
+
                                     }
                                     else if (User.Identity.IsAuthenticated && User.IsInRole("PapersManager"))
                                     {
@@ -79,37 +70,46 @@
                                         <li>
                                             @Html.ActionLink("Papers Stage", "StageDetails", "Stage", new { id = 5 }, "")
                                         </li>
-                                        <li>
-                                            @Html.ActionLink("Log Out", "LogOff", "Account")
-                                        </li>
+
                                     }
                                     else if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
                                     {
 
                                         <li>
-                                            @Html.ActionLink("Papers Stage", "StageDetails", "Stage", new { id = 1 }, "")
+                                            @Html.ActionLink("Control", "StageDetails", "Stage", new { id = 1 }, "")
                                         </li>
-                                        <li>
 
-                                            @using (Html.BeginForm("LogOff", "Account"))
-                                            {
-                                                @Html.AntiForgeryToken()
-                                                <input type="submit" value="Log Out" class="btn btn-danger" />
-                                            }
-                                        </li>
                                     }
                                 }
+                                
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                    <li >
+                                        <a>@User.Identity.Name</a>
+                                    </li>
 
-
-                                @if (!User.Identity.IsAuthenticated)
-                                {
                                     <li>
-                                        @Html.ActionLink("Log In", "Login", "Account")
+
+                                        @using (Html.BeginForm("LogOff", "Account"))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <input type="submit" value="Log Out" class="btn btn-danger" />
+                                        }
+                                    
+
                                     </li>
                                 }
 
+                                    @if (!User.Identity.IsAuthenticated)
+                                    {
+                                        <li>
+                                            @Html.ActionLink("Log In", "Login", "Account")
+                                        </li>
+                                    }
 
-                            </ul>
+
+                                </ul>
+                            
                         </nav>
                         <div class="menu-icon animated wow zoomIn" data-wow-duration="1000ms" data-wow-delay="800ms"><span></span></div>
                     </div>
@@ -148,9 +148,9 @@
 
     <!-- //footer -->
 
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @*<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="~/js/jquery-2.1.4.min.js"></script>
     <script>
@@ -235,9 +235,12 @@
     @*///////////////////////////*@
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
-    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    
 </body>
 </html>

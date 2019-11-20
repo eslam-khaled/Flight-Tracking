@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "AddPassanger";
     Layout = null;
+    Html.EnableClientValidation(true);
 }
 
 <h2>AddPassanger</h2>
@@ -64,8 +65,9 @@
 }
 <script>
     function EndUpdatePage() {
-  //$('#addpassanger').modal('hide')
+  
         $('#addpassanger').modal('handleUpdate')
+        $('#addpassanger').modal('hide')
   
 }
 </script>
