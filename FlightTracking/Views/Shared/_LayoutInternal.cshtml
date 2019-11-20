@@ -20,13 +20,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Home");
+                    </li>
 
                     @*Stage Managers Rules to show each Stage as same as its Manager*@
                     @if (User.Identity.IsAuthenticated && User.IsInRole("OnPlaneManager"))
@@ -39,46 +40,37 @@
                             @Html.ActionLink("Plane", "Index", "Plane")
                         </li>
                     }
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("LuggageManager"))
-                    {
+                    @{
+                        if (User.Identity.IsAuthenticated && User.IsInRole("LuggageManager"))
+                        {
+                            <li>
+                                @Html.ActionLink("Luggage Stage", "StageDetails", "Stage", new { id = 2 }, "")
+                            </li>
+                        }
+                        else if (User.Identity.IsAuthenticated && User.IsInRole("InspectingManager"))
+                        {
+                            <li>
+                                @Html.ActionLink("Inspecting Stage", "StageDetails", "Stage", new { id = 3 }, "")
+                            </li>
+                        }
+                        else if (User.Identity.IsAuthenticated && User.IsInRole("CustomManager"))
+                        {
+                            <li>
+                                @Html.ActionLink("Customs Stage", "StageDetails", "Stage", new { id = 4 }, "")
+                            </li>
+                        }
+                        else if (User.Identity.IsAuthenticated && User.IsInRole("PapersManager"))
+                        {
 
-                        <li>
-                            @Html.ActionLink("Luggage Stage", "StageDetails", "Stage", new { id = 2 }, "")
-                        </li>
-                        <li>
-                            @Html.ActionLink("Plane", "Index", "Plane")
-                        </li>
+                            <li>
+                                @Html.ActionLink("Papers Stage", "StageDetails", "Stage", new { id = 5 }, "")
+                            </li>
+                        }
                     }
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("InspectingManager"))
-                    {
 
-                        <li>
-                            @Html.ActionLink("Inspecting Stage", "StageDetails", "Stage", new { id = 3 }, "")
-                        </li>
-                        <li>
-                            @Html.ActionLink("Plane", "Index", "Plane")
-                        </li>
-                    }
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("CustomManager"))
-                    {
 
-                        <li>
-                            @Html.ActionLink("Customs Stage", "StageDetails", "Stage", new { id = 4 }, "")
-                        </li>
-                        <li>
-                            @Html.ActionLink("Plane", "Index", "Plane")
-                        </li>
-                    }
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("PapersManager"))
-                    {
 
-                        <li>
-                            @Html.ActionLink("Papers Stage", "StageDetails", "Stage", new { id = 4 }, "")
-                        </li>
-                        <li>
-                            @Html.ActionLink("Plane", "Index", "Plane")
-                        </li>
-                    }
+
                     @*Stage Managers Rules to show each Stage as same as its Manager*@
 
 
@@ -90,6 +82,13 @@
                         <li>
                             @Html.ActionLink("New User", "Register", "Account")
                         </li>
+                        <li>
+                            @Html.ActionLink("Plane", "Index", "Plane")
+                        </li>
+                        <li>
+                            @Html.ActionLink("On Plane Stage", "StageDetails", "Stage", new { id = 1 }, "")
+                        </li>
+
                     }
 
                 </ul>
@@ -97,8 +96,23 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>
-                            @Html.ActionLink("Log Out", "LogOff", "Account")
+
+                            @using (Html.BeginForm("LogOff", "Account"))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="submit" value="Log Out" class="btn btn-danger" />
+                            }
                         </li>
+
+                        //style="margin-top:20px;margin-left:10px;"
+
+
+
+
+
+
+
+
                     }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

@@ -79,7 +79,8 @@ namespace FlightTracking.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("StageDetails","Stage",new { id=1});
+                    //RedirectToLocal(returnUrl)
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
