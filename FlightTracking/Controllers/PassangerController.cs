@@ -48,8 +48,10 @@ namespace FlightTracking.Controllers
 
         public ActionResult AddPassanger(int id,Passanger passanger)
         {
-            Stages stages = context.Stages.Where(x => x.StageID == 1).FirstOrDefault();
-            passanger.Stages = stages;
+            //Stages stages = context.Stages.Where(x => x.StageID == 1).FirstOrDefault();
+            //passanger.Stages = stages;
+            passanger.PassangerStageId = 1;
+            passanger.PassangerPlaneId = id;
             context.passangers.Add(passanger);
             context.SaveChanges();
            
