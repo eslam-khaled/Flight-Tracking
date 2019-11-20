@@ -20,21 +20,29 @@ namespace FlightTracking.Controllers
             context = new ApplicationDbContext();
         }
 
+
         #region Get Passangers
  
         //GET: Passanger By Stage ID
             public ActionResult Index(int? id =1)
         {
             var AllPassangers = context.passangers.Where(x => x.Stages.StageID == id).ToList();
+          //  var AllPassangers = context.passangers.Where(x => x.Id == id).ToList();
             return View("Index", AllPassangers);
         }
-        #endregion
-
-        #region details
         public ActionResult Planepassaner(int id)
         {
             var passangers = context.passangers.Where(a => a.PassangerPlaneId == id).ToList();
             return PartialView("_indexpassanger", passangers);
+        }
+        #endregion
+
+        #region details
+        public ActionResult Details(int id)
+        {
+            var p = context.passangers.Find(id);
+            return View("Details",p);
+
         }
         #endregion
 
@@ -67,21 +75,23 @@ namespace FlightTracking.Controllers
         public ActionResult DeletePassanger(int? id)
         {
             Passanger passanger = context.passangers.Find(id);
-            var ResDetails = context.passangers.Where(x => x.Id == id).FirstOrDefault();
-            return View(ResDetails);
-        }
-
-        [HttpPost]
-      
-        [ValidateAntiForgeryToken]
-        public ActionResult DeletePassanger(Passanger passanger, int id)
-        {
-            var MyDel = context.passangers.Where(c => c.Id == id).FirstOrDefault();
-            context.passangers.Remove(MyDel);
+            int ?planeid = passanger.PassangerPlaneId;
+            context.passangers.Remove(passanger);
             context.SaveChanges();
-
-            return RedirectToAction("Index");
+            return RedirectToAction("Details","Plane",new { id= planeid });
         }
+
+        //[HttpPost]
+      
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeletePassanger(Passanger passanger, int id)
+        //{
+        //    var MyDel = context.passangers.Where(c => c.Id == id).FirstOrDefault();
+        //    context.passangers.Remove(MyDel);
+        //    context.SaveChanges();
+
+        //    return RedirectToAction("Index");
+        //}
         #endregion
 
         //EditPassanger

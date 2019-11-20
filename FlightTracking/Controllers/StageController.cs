@@ -33,10 +33,10 @@ namespace FlightTracking.Controllers
         {
             //id of stage
             var Details = context.Stages.Where(x => x.StageID == id).FirstOrDefault();
-            Details.EstimatedTime += Convert.ToInt32(Details.ExtraTime);
-
+            //Details.EstimatedTime += Convert.ToInt32(Details.ExtraTime);
             var passenger = context.passangers.Where(x => x.PassangerStageId == id).ToList();
             PassangerStageVM vs = new PassangerStageVM { passanger = passenger, stages = Details };
+            
             return View("StageDetails", vs);
         }
 
@@ -56,6 +56,7 @@ namespace FlightTracking.Controllers
                 Stages addEx = context.Stages.Where(x => x.StageID == id).SingleOrDefault();
                 List<Passanger> pa = context.passangers.Where(x => x.PassangerStageId == id).ToList();
                 addEx.ExtraTime = s.stages.ExtraTime;
+                addEx.EstimatedTime += Convert.ToInt32(addEx.ExtraTime);
                 s.passanger = pa;
                 s.stages = addEx;
                 context.SaveChanges();
