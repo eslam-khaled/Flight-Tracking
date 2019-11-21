@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace FlightTracking.Controllers
 {
+    [Authorize(Roles = "SuperAdmin")]
     public class RolesController : Controller
     {
 

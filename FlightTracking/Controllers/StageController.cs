@@ -8,6 +8,7 @@ using FlightTracking.ViewModels;
 
 namespace FlightTracking.Controllers
 {
+    [Authorize]
     public class StageController : Controller
     {
         #region DB Context
@@ -32,7 +33,28 @@ namespace FlightTracking.Controllers
         public ActionResult StageDetails(int id)
         {
             //id of stage
+            if (User.IsInRole("OnPlaneManager") && id != 1)
+            {
+                id = 1;
+            }
+            else if (User.IsInRole("LuggageManager") && id != 2)
+            {
+                id = 2;
+            }
+            else if (User.IsInRole("InspectingManager") && id != 3)
+            {
+                id = 3;
+            }
+            else if (User.IsInRole("CustomManager") && id != 4)
+            {
+                id = 4;
+            }
+            else if (User.IsInRole("PapersManager") && id != 5)
+            {
+                id = 5;
+            }
             
+
             var Details = context.Stages.Where(x => x.StageID == id).FirstOrDefault();
             //Details.EstimatedTime += Convert.ToInt32(Details.ExtraTime);
             var passenger = context.passangers.Where(x => x.PassangerStageId == id).ToList();
@@ -49,6 +71,7 @@ namespace FlightTracking.Controllers
         //    return View();
         //}
 
+            
         [HttpPost]
         public ActionResult AddExtraTime(PassangerStageVM s, int id)
         {

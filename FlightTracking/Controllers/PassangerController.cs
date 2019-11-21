@@ -11,6 +11,7 @@ using System.Net;
 
 namespace FlightTracking.Controllers
 {
+    [Authorize]
     public class PassangerController : Controller
     {
         string path="../images/";
@@ -38,6 +39,7 @@ namespace FlightTracking.Controllers
         #endregion
 
         #region details
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Details(int id)
         {
             var p = context.passangers.Find(id);
@@ -45,7 +47,7 @@ namespace FlightTracking.Controllers
 
         }
         #endregion
-
+        [Authorize(Roles ="SuperAdmin")]
         #region Add Passanger
         [HttpGet]
         public ActionResult AddPassanger()
@@ -53,7 +55,7 @@ namespace FlightTracking.Controllers
             return PartialView("_partialpassangeradd");
         }
         [HttpPost]
-
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult AddPassanger(int id,Passanger passanger)
         {
             //Stages stages = context.Stages.Where(x => x.StageID == 1).FirstOrDefault();
@@ -74,7 +76,7 @@ namespace FlightTracking.Controllers
         //DeletePassanger
         #region Delete
         [HttpGet]
-     
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult DeletePassanger(int? id)
         {
             Passanger passanger = context.passangers.Find(id);
@@ -100,7 +102,7 @@ namespace FlightTracking.Controllers
         //EditPassanger
         #region Edit
         [HttpGet]
-
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult EditPassanger(int? id)
         {
             Passanger passanger = context.passangers.Find(id);
@@ -146,10 +148,12 @@ namespace FlightTracking.Controllers
         }
         #endregion
         #region Passanger Search
+        [AllowAnonymous]
         public ActionResult PassangerSearch()
         {
             return View();
         }
+        [AllowAnonymous]
 
         [HttpPost]
         public ActionResult PassangerSearch(int? Id)

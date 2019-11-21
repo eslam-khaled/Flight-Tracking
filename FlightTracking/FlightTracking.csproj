@@ -244,6 +244,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ErorrView.css" />
     <Content Include="Content\ErorrView.js" />
+    <Content Include="css\404.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\dropdown.css" />
     <Content Include="css\font-awesome.css" />
@@ -380,6 +381,8 @@
     <Content Include="fonts\OpenSans-Bold.ttf" />
     <Content Include="fonts\OpenSans-Regular.ttf" />
     <Content Include="fonts\OpenSans-Semibold.ttf" />
+    <Content Include="Views\Shared\Error401.cshtml" />
+    <Content Include="Views\Shared\Error404.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
