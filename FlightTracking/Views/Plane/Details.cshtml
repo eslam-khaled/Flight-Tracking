@@ -6,10 +6,10 @@
     Html.EnableClientValidation(true);
 }
 
-<h2>Details</h2>
+
 
 <div>
-    <h4>Plane</h4>
+    <h2 class="text-capitalize text-center text-info">PLANES</h2>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -74,10 +74,10 @@
 </div>
 <br />
 
+<hr style="margin:20px 20%"/>
+<h2 class="text-capitalize text-center text-info">The Plane Passanger</h2>
 
-<p class="text-center text-info ">
-    <b> The Plane Passanger</b>
-</p>
+
 <div>
     @Html.Action("Planepassaner","Passanger",new {id=Model.ID })
 </div>

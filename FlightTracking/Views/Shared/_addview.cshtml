@@ -12,8 +12,9 @@
     {
         //Confirm = "Are You Sure?",
         HttpMethod = "post",
-        InsertionMode = InsertionMode.InsertAfter,
-        UpdateTargetId = "tbody"
+        InsertionMode = InsertionMode.InsertBefore,
+        UpdateTargetId = "tbody",
+        OnSuccess="EndUpdatePage"
 
 
     };
@@ -67,7 +68,7 @@
         </div>*@
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" onclick="EndUpdatePage()">Add</button>
+        <button type="submit" class="btn btn-primary" >Add</button>
     </div>
 </div>
     @*</div>*@

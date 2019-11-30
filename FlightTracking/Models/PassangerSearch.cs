@@ -11,6 +11,7 @@ namespace FlightTracking.Models
         public string PassangerName { get; set; }
         public string PassangerNationality { get; set; }
         public string StageName { get; set; }
+        public int? stageId { get; set; }
         public int? StageExtraTime { get; set; }
         public int StageEstimatedTime { get; set; }
     }

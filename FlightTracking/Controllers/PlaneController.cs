@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using FlightTracking.Models;
 namespace FlightTracking.Controllers
 {
-    [Authorize(Roles ="SuperAdmin")]
+    [Authorize(Roles = "SuperAdmin,OnPlaneManager")]
     public class PlaneController : Controller
     {
         ApplicationDbContext context;

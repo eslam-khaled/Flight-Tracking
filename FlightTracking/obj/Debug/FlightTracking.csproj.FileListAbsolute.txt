@@ -577,3 +577,5 @@ C:\Users\abdal\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTrack
 C:\Users\abdal\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.csproj.CopyComplete
 C:\Users\abdal\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.dll
 C:\Users\abdal\Source\Repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.pdb
+C:\Users\hp\source\repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.Migrations.FKforPassanger.resources
+C:\Users\hp\source\repos\Flight-Tracking\FlightTracking\obj\Debug\FlightTracking.Migrations.lastWorkValidation.resources

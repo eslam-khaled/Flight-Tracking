@@ -261,6 +261,7 @@
     <Content Include="images\arr.png" />
     <Content Include="images\bann.jpg" />
     <Content Include="images\contact.jpg" />
+    <Content Include="images\costumes.jpg" />
     <Content Include="images\g1.jpg" />
     <Content Include="images\g2.jpg" />
     <Content Include="images\g3.jpg" />
@@ -269,9 +270,12 @@
     <Content Include="images\g6.jpg" />
     <Content Include="images\g7.jpg" />
     <Content Include="images\icons.svg" />
+    <Content Include="images\Laggage.jpg" />
+    <Content Include="images\Onplane.jpg" />
     <Content Include="images\p1.jpg" />
     <Content Include="images\p2.jpg" />
     <Content Include="images\p3.jpg" />
+    <Content Include="images\Papers.jpg" />
     <Content Include="images\plan.jpg" />
     <Content Include="images\search.png" />
     <Content Include="images\services.jpg" />

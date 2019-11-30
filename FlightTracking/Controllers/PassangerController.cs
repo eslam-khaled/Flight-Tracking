@@ -47,7 +47,7 @@ namespace FlightTracking.Controllers
 
         }
         #endregion
-        [Authorize(Roles ="SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin,OnPlaneManager")]
         #region Add Passanger
         [HttpGet]
         public ActionResult AddPassanger()
@@ -55,7 +55,7 @@ namespace FlightTracking.Controllers
             return PartialView("_partialpassangeradd");
         }
         [HttpPost]
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin,OnPlaneManager")]
         public ActionResult AddPassanger(int id,Passanger passanger)
         {
             //Stages stages = context.Stages.Where(x => x.StageID == 1).FirstOrDefault();
@@ -76,7 +76,7 @@ namespace FlightTracking.Controllers
         //DeletePassanger
         #region Delete
         [HttpGet]
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin,OnPlaneManager ")]
         public ActionResult DeletePassanger(int? id)
         {
             Passanger passanger = context.passangers.Find(id);
@@ -120,7 +120,7 @@ namespace FlightTracking.Controllers
             MyEdit.Nationality = passanger.Nationality;
             context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details",new{ Controller="Plane",id=MyEdit.PassangerPlaneId});
         }
         #endregion
 
@@ -134,17 +134,17 @@ namespace FlightTracking.Controllers
         public ActionResult MoveToNextStage(int? id)
         {
             var GoNext = context.passangers.Where(x=>x.Id==id).SingleOrDefault();
-            if (GoNext.PassangerStageId < 5)
+            if (GoNext.PassangerStageId <= 5)
             {
                 GoNext.PassangerStageId += 1;
                 context.SaveChanges();
                 return RedirectToAction("StageDetails", "Stage", new { id = GoNext.PassangerStageId -1 });
             }
-            else if (GoNext.PassangerStageId == 5)
+            else 
             {
                 return PartialView("Error");
             }
-            return View();
+            
         }
         #endregion
         #region Passanger Search
@@ -180,14 +180,17 @@ namespace FlightTracking.Controllers
                                   PassangerName = p.Name,
                                   PassangerNationality = p.Nationality,
                                   StageName = s.StageName,
+                                  stageId=s.StageID,
                                   StageExtraTime = s.ExtraTime,
                                   StageEstimatedTime = s.EstimatedTime
                               }).FirstOrDefault();
-
+                
+                //var totalTime = context.Stages.Sum(x => x.EstimatedTime);
                 return View("PassangerSearchDetails", result);
             }
 
         }
         #endregion
+
     }
 }
